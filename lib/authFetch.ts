@@ -8,6 +8,7 @@ export interface FetchOptions extends RequestInit {
 export const authFetch = async (url: string | URL, options: FetchOptions = {}) => {
 	const session = await getSession();
 
+	console.log(session, "SESIION from aUTH fetch");
 	options.headers = {
 		...options.headers,
 		Authorization: `Bearer ${session?.accessToken}`,

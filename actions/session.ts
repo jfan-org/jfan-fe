@@ -10,6 +10,7 @@ export type Session = {
 	user: {
 		id: string;
 		name: string;
+		email: string;
 		role: Role;
 	};
 	accessToken: string;
@@ -48,7 +49,7 @@ export async function getSession() {
 		return payload as Session;
 	} catch (err) {
 		console.error("Failed to verify the session", err);
-		redirect("/auth/sigin");
+		redirect("/auth/login");
 	}
 }
 

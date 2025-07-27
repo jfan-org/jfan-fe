@@ -1,2 +1,2 @@
-export const BACKEND_URL = process.env.BACKEND_URL;
-console.log(BACKEND_URL);
+export const NEXT_PUBLIC_BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log(NEXT_PUBLIC_BACKEND_URL);
