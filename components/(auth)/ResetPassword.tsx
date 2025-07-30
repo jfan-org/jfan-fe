@@ -4,11 +4,12 @@ import React from "react";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthLayout } from "../layouts/AuthLayout";
+// import { AuthLayout } from "../layouts/AuthLayout";
 import { CustomInput } from "../molecule/CustomInput";
 
 import { Button } from "@/components/ui/button";
 import { ResetPasswordInput, resetPasswordSchema } from "@/lib/validation.auth";
+import AuthLayout from "../layouts/AuthLayout";
 
 export default function ResetPasswordPage() {
 	const searchParams = useSearchParams();

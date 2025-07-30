@@ -44,5 +44,5 @@ export const LoginFormSchema = z.object({
 export enum Role {
 	ADMIN = "admin",
 	EMPLOYER = "employer",
-	USER = "user",
+	USER = "job_seeker",
 }

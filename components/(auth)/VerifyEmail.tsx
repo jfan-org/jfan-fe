@@ -89,7 +89,7 @@ export default function VerifyEmailPage() {
 				<Button
 					type="submit"
 					disabled={isSubmitting}
-					className="w-full h-12 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg">
+					className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg">
 					{isSubmitting ? "Verifying..." : "VERIFY EMAIL"}
 				</Button>
 			</form>
@@ -100,7 +100,7 @@ export default function VerifyEmailPage() {
 					<button
 						onClick={handleResendCode}
 						disabled={isResending}
-						className="text-sm text-green-600 hover:text-green-700 font-medium disabled:opacity-50">
+						className="text-sm text-blue-600 hover:text-blue-700 font-medium disabled:opacity-50">
 						{isResending ? "Sending..." : "Resend Code"}
 					</button>
 				</div>
