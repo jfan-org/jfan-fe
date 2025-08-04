@@ -23,7 +23,7 @@ export default function LoginPage() {
 	} = useForm<LoginInput>({
 		resolver: zodResolver(loginSchema),
 		defaultValues: {
-			email: "simdimike123@gmail.com",
+			email: "",
 		},
 	});
 

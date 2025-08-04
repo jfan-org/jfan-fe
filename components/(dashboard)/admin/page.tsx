@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import {
 	LineChart,
@@ -94,28 +95,52 @@ const analyticsAPI = {
 	],
 };
 
-// Stats Card Component
-const StatsCard = ({ title, value, change, icon: Icon, color = "blue" }) => (
-	<Card>
-		<CardContent className="p-6">
-			<div className="flex items-center justify-between">
-				<div>
-					<p className="text-sm font-medium text-gray-600">{title}</p>
-					<p className="text-2xl font-bold">{value}</p>
-					{change && (
-						<p className={`text-sm ${change > 0 ? "text-green-600" : "text-red-600"}`}>
-							{change > 0 ? "+" : ""}
-							{change}% from last month
-						</p>
-					)}
+// Color mapping for stats cards
+const colorClasses = {
+	blue: {
+		background: "bg-blue-100",
+		text: "text-blue-600",
+	},
+	green: {
+		background: "bg-green-100",
+		text: "text-green-600",
+	},
+	purple: {
+		background: "bg-purple-100",
+		text: "text-purple-600",
+	},
+	orange: {
+		background: "bg-orange-100",
+		text: "text-orange-600",
+	},
+};
+
+// Stats Card Component - Fixed
+const StatsCard = ({ title, value, change, icon: Icon, color = "blue" }) => {
+	const colors = colorClasses[color] || colorClasses.blue;
+
+	return (
+		<Card>
+			<CardContent className="p-6">
+				<div className="flex items-center justify-between">
+					<div>
+						<p className="text-sm font-medium text-gray-600">{title}</p>
+						<p className="text-2xl font-bold">{value}</p>
+						{change && (
+							<p className={`text-sm ${change > 0 ? "text-green-600" : "text-red-600"}`}>
+								{change > 0 ? "+" : ""}
+								{change}% from last month
+							</p>
+						)}
+					</div>
+					<div className={`p-3 ${colors.background} rounded-full`}>
+						<Icon className={`w-6 h-6 ${colors.text}`} />
+					</div>
 				</div>
-				<div className={`p-3 bg-${color}-100 rounded-full`}>
-					<Icon className={`w-6 h-6 text-${color}-600`} />
-				</div>
-			</div>
-		</CardContent>
-	</Card>
-);
+			</CardContent>
+		</Card>
+	);
+};
 
 // Country Distribution Component
 const CountryDistribution = ({ data }) => {
@@ -337,7 +362,7 @@ const ExperienceDistribution = ({ data }) => (
 								? "Users"
 								: name === "avgYearsExperience"
 								? "Avg Experience"
-								: "Avg Expected Salary",
+								: "Expected Salary",
 						]}
 					/>
 					<Legend />

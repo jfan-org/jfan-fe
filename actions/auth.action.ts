@@ -240,6 +240,7 @@ export async function resetPassword(token: string, formData: ResetPasswordInput)
 }
 
 export async function verifyEmail(email: string, formData: VerifyEmailInput): Promise<ActionResult> {
+	console.log("Very email called", "unexpected");
 	try {
 		// Validate input data
 		const validatedData = verifyEmailSchema.parse(formData);
@@ -280,8 +281,9 @@ export async function verifyEmail(email: string, formData: VerifyEmailInput): Pr
 }
 
 export async function resendVerificationCode(email: string): Promise<ActionResult> {
+	console.log("email request", email, process.env.BACKEND_URL);
 	try {
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/resend-verification-code`, {
+		const response = await fetch(`${process.env.BACKEND_URL}/auth/resend-verification-code`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
