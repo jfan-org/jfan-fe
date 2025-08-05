@@ -1,7 +1,8 @@
 // components/layout/LayoutWrapper.tsx
 import React from "react";
-import { Header } from "./Header";
+// import { Header } from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 
 interface User {
 	id: string;
