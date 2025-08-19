@@ -77,9 +77,7 @@ const AboutPage: NextPage = () => {
 							<h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
 								About JFAN
 							</h1>
-							<p className="text-xl md:text-2xl text-yellow-400 mb-6">
-								Job-seekers and Freelancers Africa Network
-							</p>
+							<p className="text-xl md:text-2xl text-yellow-400 mb-6">Jobs For Africa Now</p>
 							<p className="text-lg text-gray-300 mb-8 max-w-4xl mx-auto">
 								Transforming Africa's professional landscape through innovative technology, strategic
 								partnerships, and unwavering commitment to excellence. We are the continent's premier

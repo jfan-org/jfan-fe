@@ -1,506 +1,197 @@
-// // components/sections/HeroSection.tsx
-// "use client";
-
-// import React, { useState } from "react";
-// import { Search, MapPin, Filter, Briefcase, TrendingUp, Users, Building, Star } from "lucide-react";
-// import { useRouter } from "next/navigation";
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { Badge } from "@/components/ui/badge";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-// import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-
-// interface SearchFilters {
-// 	location: string;
-// 	category: string;
-// 	salary: string;
-// 	type: string;
-// }
-
-// interface HeroSectionProps {
-// 	onSearch?: (query: string, filters: SearchFilters) => void;
-// }
-
-// const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
-// 	const [searchQuery, setSearchQuery] = useState("");
-// 	const [showFilters, setShowFilters] = useState(false);
-// 	const [filters, setFilters] = useState<SearchFilters>({
-// 		location: "",
-// 		category: "",
-// 		salary: "",
-// 		type: "",
-// 	});
-// 	const router = useRouter();
-
-// 	const categories = [
-// 		"Technology",
-// 		"Finance",
-// 		"Healthcare",
-// 		"Education",
-// 		"Marketing",
-// 		"Sales",
-// 		"Engineering",
-// 		"Design",
-// 		"Management",
-// 		"Operations",
-// 	];
-
-// 	const locations = ["Nigeria", "Kenya", "South Africa", "Ghana", "Egypt", "Morocco", "Ethiopia", "Tanzania", "Uganda", "Rwanda"];
-
-// 	const salaryRanges = ["$1,000 - $2,000", "$2,000 - $3,000", "$3,000 - $5,000", "$5,000 - $7,000", "$7,000 - $10,000", "$10,000+"];
-
-// 	const jobTypes = ["Full-time", "Part-time", "Contract", "Freelance", "Internship"];
-
-// 	const handleSearch = () => {
-// 		if (onSearch) {
-// 			onSearch(searchQuery, filters);
-// 		} else {
-// 			const params = new URLSearchParams();
-// 			if (searchQuery) params.append("q", searchQuery);
-// 			if (filters.location) params.append("location", filters.location);
-// 			if (filters.category) params.append("category", filters.category);
-// 			if (filters.salary) params.append("salary", filters.salary);
-// 			if (filters.type) params.append("type", filters.type);
-
-// 			router.push(`/jobs?${params.toString()}`);
-// 		}
-// 	};
-
-// 	const popularSearches = [
-// 		"Software Engineer",
-// 		"Marketing Manager",
-// 		"Data Analyst",
-// 		"Project Manager",
-// 		"Sales Representative",
-// 		"Graphic Designer",
-// 	];
-
-// 	const stats = [
-// 		{ icon: Briefcase, value: "10,000+", label: "Active Jobs", color: "text-emerald-600" },
-// 		{ icon: Users, value: "50,000+", label: "Job Seekers", color: "text-blue-600" },
-// 		{ icon: Building, value: "2,500+", label: "Companies", color: "text-orange-600" },
-// 		{ icon: MapPin, value: "54", label: "Countries", color: "text-purple-600" },
-// 	];
-
-// 	return (
-// 		<section className="relative bg-gradient-to-br from-emerald-50 via-white to-orange-50 py-16 lg:py-24 overflow-hidden">
-// 			{/* Background Elements */}
-// 			<div className="absolute inset-0 overflow-hidden">
-// 				<div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-200 to-transparent rounded-full opacity-20 blur-3xl" />
-// 				<div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-orange-200 to-transparent rounded-full opacity-20 blur-3xl" />
-// 				<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-emerald-100 to-orange-100 rounded-full opacity-10 blur-3xl" />
-// 			</div>
-
-// 			<div className="relative container mx-auto px-4">
-// 				{/* Hero Content */}
-// 				<div className="text-center mb-12 max-w-4xl mx-auto">
-// 					<div className="flex justify-center mb-6">
-// 						<Badge
-// 							variant="secondary"
-// 							className="bg-gradient-to-r from-emerald-100 to-orange-100 text-emerald-700 border-emerald-200">
-// 							<Star className="w-3 h-3 mr-1" />
-// 							Africa&apos;s #1 Job Platform
-// 						</Badge>
-// 					</div>
-
-// 					<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-// 						Discover Your Next Opportunity
-// 						<span className="block bg-gradient-to-r from-emerald-600 to-orange-600 bg-clip-text text-transparent"></span>
-// 					</h1>
-
-// 					<p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-// 						Connect with leading employers from Cape Town to Cairo. Find jobs that match your skills, aspirations,
-// 						and cultural values across the African continent.
-// 					</p>
-
-// 					{/* Stats Cards */}
-// 					<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-// 						{stats.map((stat, index) => {
-// 							const Icon = stat.icon;
-// 							return (
-// 								<Card
-// 									key={index}
-// 									className="border-none shadow-sm bg-white/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
-// 									<CardContent className="p-4 text-center">
-// 										<div
-// 											className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white shadow-sm mb-3 ${stat.color}`}>
-// 											<Icon className="w-6 h-6" />
-// 										</div>
-// 										<div className="text-2xl font-bold text-foreground mb-1">
-// 											{stat.value}
-// 										</div>
-// 										<div className="text-sm text-muted-foreground">{stat.label}</div>
-// 									</CardContent>
-// 								</Card>
-// 							);
-// 						})}
-// 					</div>
-// 				</div>
-
-// 				{/* Search Section */}
-// 				<div className="max-w-4xl mx-auto">
-// 					<Card className="border-none shadow-xl bg-white/80 backdrop-blur-sm">
-// 						<CardContent className="p-6 lg:p-8">
-// 							{/* Main Search Bar */}
-// 							<div className="flex flex-col lg:flex-row gap-4 mb-6">
-// 								<div className="flex-1 relative">
-// 									<Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
-// 									<Input
-// 										type="text"
-// 										placeholder="Job title, company, or keywords..."
-// 										value={searchQuery}
-// 										onChange={(e) => setSearchQuery(e.target.value)}
-// 										onKeyPress={(e) => e.key === "Enter" && handleSearch()}
-// 										className="pl-12 h-14 text-lg border-none bg-muted/50 focus:bg-white transition-colors"
-// 									/>
-// 								</div>
-
-// 								<div className="flex gap-3">
-// 									<Collapsible open={showFilters} onOpenChange={setShowFilters}>
-// 										<CollapsibleTrigger asChild>
-// 											<Button
-// 												variant={showFilters ? "default" : "outline"}
-// 												size="lg"
-// 												className={
-// 													showFilters
-// 														? "bg-gradient-to-r from-emerald-500 to-amber-400 hover:from-emerald-600 hover:to-orange-600"
-// 														: ""
-// 												}>
-// 												<Filter className="w-5 h-5 mr-2" />
-// 												Filters
-// 											</Button>
-// 										</CollapsibleTrigger>
-// 									</Collapsible>
-
-// 									<Button
-// 										onClick={handleSearch}
-// 										size="lg"
-// 										className="bg-gradient-to-r from-emerald-500 to-amber-400 hover:from-emerald-600 hover:to-orange-600 px-8">
-// 										Search Jobs
-// 									</Button>
-// 								</div>
-// 							</div>
-
-// 							{/* Advanced Filters */}
-// 							<Collapsible open={showFilters} onOpenChange={setShowFilters}>
-// 								<CollapsibleContent className="space-y-4">
-// 									<div className="pt-6 border-t">
-// 										<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-// 											<div className="space-y-2">
-// 												<label className="text-sm font-medium text-foreground">
-// 													Location
-// 												</label>
-// 												<Select
-// 													value={filters.location}
-// 													onValueChange={(value) =>
-// 														setFilters((prev) => ({
-// 															...prev,
-// 															location: value,
-// 														}))
-// 													}>
-// 													<SelectTrigger>
-// 														<SelectValue placeholder="All Locations" />
-// 													</SelectTrigger>
-// 													<SelectContent>
-// 														<SelectItem value="">
-// 															All Locations
-// 														</SelectItem>
-// 														{locations.map((location) => (
-// 															<SelectItem
-// 																key={location}
-// 																value={location}>
-// 																{location}
-// 															</SelectItem>
-// 														))}
-// 													</SelectContent>
-// 												</Select>
-// 											</div>
-
-// 											<div className="space-y-2">
-// 												<label className="text-sm font-medium text-foreground">
-// 													Category
-// 												</label>
-// 												<Select
-// 													value={filters.category}
-// 													onValueChange={(value) =>
-// 														setFilters((prev) => ({
-// 															...prev,
-// 															category: value,
-// 														}))
-// 													}>
-// 													<SelectTrigger>
-// 														<SelectValue placeholder="All Categories" />
-// 													</SelectTrigger>
-// 													<SelectContent>
-// 														<SelectItem value="">
-// 															All Categories
-// 														</SelectItem>
-// 														{categories.map((category) => (
-// 															<SelectItem
-// 																key={category}
-// 																value={category}>
-// 																{category}
-// 															</SelectItem>
-// 														))}
-// 													</SelectContent>
-// 												</Select>
-// 											</div>
-
-// 											<div className="space-y-2">
-// 												<label className="text-sm font-medium text-foreground">
-// 													Salary Range
-// 												</label>
-// 												<Select
-// 													value={filters.salary}
-// 													onValueChange={(value) =>
-// 														setFilters((prev) => ({
-// 															...prev,
-// 															salary: value,
-// 														}))
-// 													}>
-// 													<SelectTrigger>
-// 														<SelectValue placeholder="Any Salary" />
-// 													</SelectTrigger>
-// 													<SelectContent>
-// 														<SelectItem value="">
-// 															Any Salary
-// 														</SelectItem>
-// 														{salaryRanges.map((range) => (
-// 															<SelectItem
-// 																key={range}
-// 																value={range}>
-// 																{range}
-// 															</SelectItem>
-// 														))}
-// 													</SelectContent>
-// 												</Select>
-// 											</div>
-
-// 											<div className="space-y-2">
-// 												<label className="text-sm font-medium text-foreground">
-// 													Job Type
-// 												</label>
-// 												<Select
-// 													value={filters.type}
-// 													onValueChange={(value) =>
-// 														setFilters((prev) => ({
-// 															...prev,
-// 															type: value,
-// 														}))
-// 													}>
-// 													<SelectTrigger>
-// 														<SelectValue placeholder="All Types" />
-// 													</SelectTrigger>
-// 													<SelectContent>
-// 														<SelectItem value="">
-// 															All Types
-// 														</SelectItem>
-// 														{jobTypes.map((type) => (
-// 															<SelectItem
-// 																key={type}
-// 																value={type}>
-// 																{type}
-// 															</SelectItem>
-// 														))}
-// 													</SelectContent>
-// 												</Select>
-// 											</div>
-// 										</div>
-// 									</div>
-// 								</CollapsibleContent>
-// 							</Collapsible>
-
-// 							{/* Popular Searches */}
-// 							<div className="mt-6 pt-6 border-t">
-// 								<div className="text-center">
-// 									<p className="text-sm text-muted-foreground mb-3">Popular searches:</p>
-// 									<div className="flex flex-wrap justify-center gap-2">
-// 										{popularSearches.map((search) => (
-// 											<Button
-// 												key={search}
-// 												variant="ghost"
-// 												size="sm"
-// 												onClick={() => {
-// 													setSearchQuery(search);
-// 													handleSearch();
-// 												}}
-// 												className="text-xs hover:bg-gradient-to-r hover:from-emerald-50 hover:to-orange-50 hover:text-emerald-700">
-// 												{search}
-// 											</Button>
-// 										))}
-// 									</div>
-// 								</div>
-// 							</div>
-// 						</CardContent>
-// 					</Card>
-// 				</div>
-
-// 				{/* Trust Indicators */}
-// 				<div className="mt-16 text-center">
-// 					<p className="text-sm text-muted-foreground mb-6">Trusted by leading companies across Africa</p>
-// 					<div className="flex justify-center items-center gap-8 opacity-60 grayscale">
-// 						{/* You can replace these with actual company logos */}
-// 						<div className="text-2xl font-bold">Safaricom</div>
-// 						<div className="text-2xl font-bold">MTN</div>
-// 						<div className="text-2xl font-bold">Jumia</div>
-// 						<div className="text-2xl font-bold">Flutterwave</div>
-// 						<div className="text-2xl font-bold">Andela</div>
-// 					</div>
-// 				</div>
-// 			</div>
-// 		</section>
-// 	);
-// };
-
-// export default HeroSection;
-
-// components/Home/HeroSection.tsx
+// components/HeroSection.tsx
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
-import { HeroSlide } from "../../types";
+import { motion } from "framer-motion";
+import { Target, Users, Globe } from "lucide-react";
 import Button from "../ui/NewButton";
+import Image from "next/image"; // Import Next.js Image component
 
-const HeroSection: React.FC = () => {
-	const [currentSlide, setCurrentSlide] = useState<number>(0);
-
-	const heroSlides: HeroSlide[] = [
+const HeroSection = () => {
+	// Local images array - ensure these paths are correct
+	const images = [
 		{
-			title: "Connecting Africa's Talent with Global Opportunities",
-			subtitle: "Job-seekers and Freelancers Africa Network",
-			description:
-				"Empowering African talent through comprehensive job matching, skills development, and professional networking across 55 countries.",
-			image: "🌍",
-			cta: "Explore Opportunities",
+			url: "/images/afro-enterprenure.jpg",
+			alt: "African entrepreneur working",
 		},
 		{
-			title: "Building Africa's Professional Future",
-			subtitle: "Comprehensive Talent Database",
-			description:
-				"Discover, nurture, and connect with Africa's diverse professional communities across creative, athletic, and entrepreneurial sectors.",
-			image: "🚀",
-			cta: "Join the Network",
+			url: "/images/athletes-starting-line-stadium.jpg",
+			alt: "African athletes at the starting line",
 		},
 		{
-			title: "Pan-African Professional Network",
-			subtitle: "Five Continental Regions United",
-			description:
-				"From Cairo to Cape Town, Lagos to Nairobi - connecting talent across Africa's five regional networks and global diaspora.",
-			image: "🤝",
-			cta: "Start Your Journey",
+			url: "/images/carpenter-cutting-mdf-board-inside-workshop2.jpg",
+			alt: "African carpenter cutting MDF board inside workshop",
+		},
+		{
+			url: "/images/happy-young-african-man-using-laptop-computer.jpg",
+			alt: "African learner using laptop",
+		},
+		{
+			url: "/images/group-african-kids-paying-attention-class.jpg",
+			alt: "African professionals networking",
+		},
+		{
+			url: "/images/woman-teaching-kids-class.jpg",
+			alt: "African professionals networking",
 		},
 	];
 
-	useEffect(() => {
-		const timer = setInterval(() => {
-			setCurrentSlide((prev: number) => (prev + 1) % heroSlides.length);
-		}, 5000);
-		return () => clearInterval(timer);
-	}, [heroSlides.length]);
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-	const slideVariants = {
-		enter: (direction: number) => ({
-			x: direction > 0 ? 1000 : -1000,
-			opacity: 0,
-		}),
-		center: {
-			zIndex: 1,
-			x: 0,
-			opacity: 1,
-		},
-		exit: (direction: number) => ({
-			zIndex: 0,
-			x: direction < 0 ? 1000 : -1000,
-			opacity: 0,
-		}),
-	};
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+		}, 5000);
+
+		return () => clearInterval(interval);
+	}, [images.length]);
 
 	return (
-		<section className="relative h-screen flex items-center justify-center overflow-hidden">
-			<div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-			<div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.1),transparent)]"></div>
-
-			<AnimatePresence mode="wait" custom={currentSlide}>
-				<motion.div
-					key={currentSlide}
-					custom={currentSlide}
-					variants={slideVariants}
-					initial="enter"
-					animate="center"
-					exit="exit"
-					transition={{
-						x: { type: "spring", stiffness: 300, damping: 30 },
-						opacity: { duration: 0.2 },
-					}}
-					className="relative z-10 text-center max-w-4xl mx-auto px-4">
+		<section className="relative h-screen max-h-[800px] w-full overflow-hidden">
+			{/* Background Image Carousel using Next.js Image */}
+			<div className="absolute inset-0 z-0">
+				{images.map((image, index) => (
 					<motion.div
-						className="text-8xl mb-8"
+						key={image.url}
+						className={`absolute inset-0 ${index === currentImageIndex ? "z-10" : "z-0"}`}
+						initial={{ opacity: 0 }}
 						animate={{
-							rotateY: [0, 360],
-							scale: [1, 1.1, 1],
+							opacity: index === currentImageIndex ? 1 : 0,
 						}}
-						transition={{
-							duration: 2,
-							repeat: Infinity,
-							repeatDelay: 3,
-						}}>
-						{heroSlides[currentSlide].image}
+						transition={{ duration: 1 }}>
+						<Image
+							src={image.url} // Use the correct path for your images
+							alt={image.alt}
+							fill
+							priority={index === 0} // Only prioritize first image
+							quality={80}
+							className="object-cover"
+						/>
+						{/* Dark overlay */}
+						<div className="absolute inset-0 bg-black/50" />
 					</motion.div>
+				))}
+			</div>
 
-					<motion.h1
-						className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-green-400 via-yellow-400 to-green-400 bg-clip-text text-transparent"
-						initial={{ opacity: 0, y: 50 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.2 }}>
-						{heroSlides[currentSlide].title}
-					</motion.h1>
-
-					<motion.p
-						className="text-xl md:text-2xl text-yellow-400 mb-6"
-						initial={{ opacity: 0, y: 30 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.4 }}>
-						{heroSlides[currentSlide].subtitle}
-					</motion.p>
-
-					<motion.p
-						className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.6 }}>
-						{heroSlides[currentSlide].description}
-					</motion.p>
-
-					<motion.div
-						className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.8 }}>
-						<Button size="lg" icon={<ArrowRight className="w-5 h-5" />} href="/register">
-							{heroSlides[currentSlide].cta}
-						</Button>
-
-						<Button variant="secondary" size="lg" icon={<Play className="w-5 h-5" />}>
-							Watch Demo
-						</Button>
-					</motion.div>
+			{/* Content (unchanged from your original) */}
+			<div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, delay: 0.2 }}
+					className="max-w-4xl mx-auto">
+					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+						<span className="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+							WELCOME
+						</span>{" "}
+						TO JFAN
+					</h1>
+					<p className="text-xl md:text-2xl text-gray-300 mb-8">
+						Connecting African talent with global opportunities through our comprehensive professional network
+					</p>
 				</motion.div>
-			</AnimatePresence>
 
-			{/* Slide Indicators */}
-			<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-				{heroSlides.map((_, index: number) => (
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.8, delay: 0.4 }}
+					className="flex flex-col sm:flex-row gap-4 mb-16">
+					<Button
+						href="/register"
+						size="lg"
+						className="bg-gradient-to-r from-green-500 to-yellow-500 text-gray-900 hover:opacity-90">
+						Join Now
+					</Button>
+					<Button href="/about" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+						Learn More
+					</Button>
+				</motion.div>
+
+				{/* Stats or Features */}
+				<div className="container">
+					<div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)] ">
+						<motion.div
+							className="flex gap-14 flex-none pr-14"
+							animate={{ translateX: "-50%" }}
+							transition={{ duration: 20, repeat: Infinity, ease: "linear", repeatType: "loop" }}>
+							{[
+								{
+									icon: <Target className="w-8 h-8 text-green-400" />,
+									title: "54 Countries",
+									description: "Covering all African nations",
+								},
+								{
+									icon: <Users className="w-8 h-8 text-yellow-400" />,
+									title: "10,000+ Members",
+									description: "Growing professional network",
+								},
+								{
+									icon: <Globe className="w-8 h-8 text-blue-400" />,
+									title: "Global Reach",
+									description: "Connecting Africa to the world",
+								},
+							].map((item, index) => (
+								<div
+									key={index}
+									className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+									<div className="mb-4">{item.icon}</div>
+									<h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+									<p className="text-gray-300">{item.description}</p>
+								</div>
+							))}
+
+							{/* Repeated images for Animation */}
+							{[
+								{
+									icon: <Target className="w-8 h-8 text-green-400" />,
+									title: "54 Countries",
+									description: "Covering all African nations",
+								},
+								{
+									icon: <Users className="w-8 h-8 text-yellow-400" />,
+									title: "10,000+ Members",
+									description: "Growing professional network",
+								},
+								{
+									icon: <Globe className="w-8 h-8 text-blue-400" />,
+									title: "Global Reach",
+									description: "Connecting Africa to the world",
+								},
+							].map((item, index) => (
+								<div
+									key={index}
+									className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
+									<div className="mb-4">{item.icon}</div>
+									<h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+									<p className="text-gray-300">{item.description}</p>
+								</div>
+							))}
+						</motion.div>
+					</div>
+				</div>
+			</div>
+
+			{/* Image indicator dots */}
+			<div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
+				{images.map((_, index) => (
 					<button
 						key={index}
-						onClick={() => setCurrentSlide(index)}
-						className={`w-3 h-3 rounded-full transition-all duration-300 ${
-							index === currentSlide ? "bg-yellow-400" : "bg-gray-600"
+						onClick={() => setCurrentImageIndex(index)}
+						className={`w-3 h-3 rounded-full transition-colors ${
+							index === currentImageIndex ? "bg-white" : "bg-white/50"
 						}`}
+						aria-label={`Go to slide ${index + 1}`}
 					/>
 				))}
 			</div>
+
+			{/* Scrolling indicator */}
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, delay: 0.8 }}
+				className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+				<div className="animate-bounce w-6 h-6 border-2 border-white rounded-full"></div>
+			</motion.div>
 		</section>
 	);
 };

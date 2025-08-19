@@ -1,6 +1,5 @@
-// components/UI/AnimatedSection.tsx
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 
 interface AnimatedSectionProps {
@@ -11,6 +10,12 @@ interface AnimatedSectionProps {
 }
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className = "", variants, delay = 0 }) => {
+	const [isMounted, setIsMounted] = useState(false);
+
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
 	const defaultVariants: Variants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: {
@@ -24,10 +29,16 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
 		},
 	};
 
+	// Return plain div during SSR
+	if (!isMounted) {
+		return <div className={className}>{children}</div>;
+	}
+
 	return (
 		<motion.div
 			variants={variants || defaultVariants}
 			initial="hidden"
+			animate="visible"
 			whileInView="visible"
 			viewport={{ once: true }}
 			className={className}>
