@@ -1,9 +1,6 @@
-import RegistrationPortal from "@/components/(auth)/registration";
-import SignupPage from "@/components/(auth)/SignUp";
+import { RegistrationFlow } from "@/components/(auth)/RegistrationFlow";
 import React from "react";
 
-function page() {
-	return <RegistrationPortal />;
+export default function RegisterPage() {
+	return <RegistrationFlow />;
 }
-
-export default page;

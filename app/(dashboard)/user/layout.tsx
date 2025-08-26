@@ -1,13 +1,14 @@
 import { getSession } from "@/actions/session";
 import { hasRole } from "@/lib/Authorization";
-import { Role } from "@/types/auth.type";
+import { UserRole } from "@/types/auth.types";
 import { redirect } from "next/navigation";
 
-export default async function UserEmployeeLayout({ children }: { children: React.ReactNode }) {
+export default async function UserDashboardLayout({ children }: { children: React.ReactNode }) {
 	const session = await getSession();
-	console.log(session, "user session in User DAshboard");
-	if (!session || !hasRole(session, [Role.USER])) {
+	
+	if (!session || !hasRole(session, [UserRole.JOB_SEEKER])) {
 		redirect("/unauthorized");
 	}
+	
 	return <>{children}</>;
 }

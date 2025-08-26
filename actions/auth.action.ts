@@ -1,8 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createSession, deleteSession, updateTokens } from "@/actions/session";
-
+import { createSession, deleteSession, updateTokens, getSession, completeOnboarding } from "@/actions/session";
 import { NEXT_PUBLIC_BACKEND_URL } from "@/lib/constants";
 import { authFetch } from "@/lib/authFetch";
 import {
@@ -17,12 +16,24 @@ import {
 	VerifyEmailInput,
 	verifyEmailSchema,
 } from "@/lib/validation.auth";
+import { UserType, UserRegistrationData } from "@/types/auth.types";
+import { getRegistrationEndpoint } from "@/lib/user-types.config";
+import { transformRegistrationData, handleApiError, handleAuthError, AuthResult } from "@/lib/auth-utils";
 
 interface ActionResult {
 	success?: boolean;
 	message?: string;
 	error?: string;
 	data?: any;
+}
+
+// Onboarding data interface
+interface OnboardingData {
+	profileData?: any;
+	locationData?: any;
+	preferencesData?: any;
+	skillsData?: any;
+	[key: string]: any;
 }
 export const getProfile = async () => {
 	const response = await authFetch(`${NEXT_PUBLIC_BACKEND_URL}/users/me`);
@@ -58,6 +69,34 @@ export const refreshToken = async (oldRefreshToken: string) => {
 		return null;
 	}
 };
+// Multi-type registration action
+export async function registerUser(userType: UserType, formData: UserRegistrationData): Promise<AuthResult> {
+	try {
+		const endpoint = getRegistrationEndpoint(userType);
+		const payload = transformRegistrationData(userType, formData);
+
+		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}${endpoint}`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(payload),
+		});
+
+		if (response.ok) {
+			const result = await response.json();
+			redirect(`/verify-email?email=${encodeURIComponent(formData.email)}`);
+		} else {
+			const errorData = await response.json().catch(() => ({}));
+			return {
+				success: false,
+				message: handleApiError(response, errorData),
+			};
+		}
+	} catch (error) {
+		return handleAuthError(error);
+	}
+}
+
+// Legacy signup function for backward compatibility
 export async function signUp(formData: SignupInput): Promise<ActionResult> {
 	try {
 		// Validate input data
@@ -90,19 +129,11 @@ export async function signUp(formData: SignupInput): Promise<ActionResult> {
 			};
 		}
 	} catch (error) {
-		// Check if this is a redirect error (which is expected)
-		if (error instanceof Error && error.message === "NEXT_REDIRECT") {
-			throw error; // Re-throw redirect errors
-		}
-
-		console.error("Signup error:", error);
-		return {
-			success: false,
-			message: "An unexpected error occurred. Please try again.",
-		};
+		return handleAuthError(error);
 	}
 }
 
+// Enhanced login with user type and onboarding status handling
 export async function signIn(formData: LoginInput): Promise<ActionResult> {
 	try {
 		// Validate input data
@@ -121,22 +152,58 @@ export async function signIn(formData: LoginInput): Promise<ActionResult> {
 
 		if (response.ok) {
 			const result = await response.json();
-			const tokens = result.tokens;
+			console.log("Login response:", JSON.stringify(result, null, 2));
+			console.log("User object:", result.user);
+			console.log("Tokens object:", result.tokens);
+			console.log("Response keys:", Object.keys(result));
 
-			console.log(tokens.accessToken, "accesstoken");
+			// Handle different response formats
+			let userData = result.user;
+			let tokensData = result.tokens;
+
+			// Check if the response is wrapped in a data property
+			if (result.data) {
+				userData = result.data.user;
+				tokensData = result.data.tokens;
+			}
+
+			// Check if user data is directly in the result
+			if (!userData && result.id) {
+				userData = result;
+				tokensData = result.tokens || { accessToken: result.access_token, refreshToken: result.refresh_token };
+			}
+
+			console.log("Final userData:", userData);
+			console.log("Final tokensData:", tokensData);
+
+			if (!userData || !userData.id) {
+				console.error("No user object in login response");
+				console.error("Available result properties:", Object.keys(result));
+				return {
+					success: false,
+					message: "Invalid login response format",
+				};
+			}
 
 			await createSession({
 				user: {
-					id: result.user.id,
-					name: `${result?.user?.firstName} ${result?.user?.lastName}`,
-					email: result.user.email,
-					role: result.user.role,
+					id: userData.id,
+					name: `${userData.firstName} ${userData.lastName}`,
+					email: userData.email,
+					role: userData.role,
+					userType: userData.userType || UserType.TALENT,
+					isOnboarded: userData.isOnboarded || false,
 				},
-				accessToken: tokens.accessToken,
-				refreshToken: tokens.refreshToken,
+				accessToken: tokensData.accessToken,
+				refreshToken: tokensData.refreshToken,
 			});
 
-			redirect("/redirect-user"); // page that takes user to appropriate dashboard page based on role
+			// Redirect based on onboarding status
+			if (!userData.isOnboarded) {
+				redirect("/onboarding");
+			} else {
+				redirect("/redirect-user");
+			}
 		} else {
 			const errorData = await response.json().catch(() => ({}));
 
@@ -146,16 +213,7 @@ export async function signIn(formData: LoginInput): Promise<ActionResult> {
 			};
 		}
 	} catch (error) {
-		// Check if this is a redirect error (which is expected)
-		if (error instanceof Error && error.message === "NEXT_REDIRECT") {
-			throw error; // Re-throw redirect errors
-		}
-
-		console.error("Signin error:", error);
-		return {
-			success: false,
-			message: "An unexpected error occurred. Please try again.",
-		};
+		return handleAuthError(error);
 	}
 }
 
@@ -184,18 +242,11 @@ export async function forgotPassword(formData: ForgotPasswordInput): Promise<Act
 
 			return {
 				success: false,
-				message:
-					response.status === 404
-						? "No account found with this email address."
-						: errorData.message || response.statusText,
+				message: response.status === 404 ? "No account found with this email address." : handleApiError(response, errorData),
 			};
 		}
 	} catch (error) {
-		console.error("Forgot password error:", error);
-		return {
-			success: false,
-			message: "An unexpected error occurred. Please try again.",
-		};
+		return handleAuthError(error);
 	}
 }
 
@@ -226,21 +277,11 @@ export async function resetPassword(token: string, formData: ResetPasswordInput)
 			};
 		}
 	} catch (error) {
-		// Check if this is a redirect error (which is expected)
-		if (error instanceof Error && error.message === "NEXT_REDIRECT") {
-			throw error; // Re-throw redirect errors
-		}
-
-		console.error("Reset password error:", error);
-		return {
-			success: false,
-			message: "An unexpected error occurred. Please try again.",
-		};
+		return handleAuthError(error);
 	}
 }
 
 export async function verifyEmail(email: string, formData: VerifyEmailInput): Promise<ActionResult> {
-	console.log("Very email called", "unexpected");
 	try {
 		// Validate input data
 		const validatedData = verifyEmailSchema.parse(formData);
@@ -267,23 +308,13 @@ export async function verifyEmail(email: string, formData: VerifyEmailInput): Pr
 			};
 		}
 	} catch (error) {
-		// Check if this is a redirect error (which is expected)
-		if (error instanceof Error && error.message === "NEXT_REDIRECT") {
-			throw error; // Re-throw redirect errors
-		}
-
-		console.error("Verify email error:", error);
-		return {
-			success: false,
-			message: "An unexpected error occurred. Please try again.",
-		};
+		return handleAuthError(error);
 	}
 }
 
 export async function resendVerificationCode(email: string): Promise<ActionResult> {
-	console.log("email request", email, process.env.BACKEND_URL);
 	try {
-		const response = await fetch(`${process.env.BACKEND_URL}/auth/resend-verification-code`, {
+		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/resend-verification`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -308,15 +339,99 @@ export async function resendVerificationCode(email: string): Promise<ActionResul
 						? "No account found with this email address."
 						: response.status === 429
 						? "Too many requests. Please wait before requesting another code."
-						: errorData.message || response.statusText,
+						: handleApiError(response, errorData),
 			};
 		}
 	} catch (error) {
-		console.error("Resend verification code error:", error);
-		return {
-			success: false,
-			message: "An unexpected error occurred. Please try again.",
+		return handleAuthError(error);
+	}
+}
+
+// Onboarding completion action
+export async function completeOnboardingFlow(onboardingData: OnboardingData): Promise<AuthResult> {
+	try {
+		const session = await getSession();
+		if (!session) {
+			redirect("/login");
+		}
+
+		console.log("Original onboarding data:", JSON.stringify(onboardingData, null, 2));
+
+		// Helper function to map frontend experience levels to backend enum values
+		const mapExperienceLevel = (frontendLevel: string): string | undefined => {
+			const mappings: Record<string, string> = {
+				"Entry-level": "entry_level",
+				"Junior-level": "junior",
+				"Mid-level": "mid_level",
+				"Senior-level": "senior",
+				"Lead-level": "lead",
+				"Executive-level": "executive",
+				// Alternative mappings used in onboarding forms
+				Entry: "entry_level",
+				Junior: "junior",
+				Mid: "mid_level",
+				Senior: "senior",
+				Lead: "lead",
+				Executive: "executive",
+			};
+			return mappings[frontendLevel];
 		};
+
+		// Transform nested data structure to flat structure expected by backend
+		const profileData = onboardingData.profileData || {};
+		const preferencesData = onboardingData.preferencesData || {};
+
+		const transformedData = {
+			// Required user basic info from session
+			firstName: session.user.name?.split(" ")[0] || "",
+			lastName: session.user.name?.split(" ").slice(1).join(" ") || "",
+			email: session.user.email || "",
+
+			// Map profile data to OnboardingDto fields
+			bio: profileData.bio || profileData.description,
+			experienceLevel: profileData.experienceLevel ? mapExperienceLevel(profileData.experienceLevel) : undefined,
+			currentJobTitle: profileData.currentJobTitle,
+
+			// Map skills to languages array for now (adjust based on actual form structure)
+			languages: profileData.keySkills ? [profileData.keySkills] : undefined,
+
+			// Map preferences - you may need to adjust these mappings based on your form
+			preferredJobTypes: preferencesData["Job Preferences"] || [],
+
+			// Location data (if available)
+			...(onboardingData.locationData || {}),
+
+			// Skills data (if available)
+			...(onboardingData.skillsData || {}),
+		};
+
+		// Remove undefined fields to avoid validation errors
+		Object.keys(transformedData).forEach((key) => {
+			if (transformedData[key] === undefined || transformedData[key] === "") {
+				delete transformedData[key];
+			}
+		});
+
+		console.log("Transformed onboarding data:", JSON.stringify(transformedData, null, 2));
+
+		const response = await authFetch(`${NEXT_PUBLIC_BACKEND_URL}/users/complete-onboarding`, {
+			method: "POST",
+			body: JSON.stringify(transformedData),
+		});
+
+		if (response.ok) {
+			// Update session to mark user as onboarded
+			await completeOnboarding();
+			redirect("/redirect-user");
+		} else {
+			const errorData = await response.json().catch(() => ({}));
+			return {
+				success: false,
+				message: handleApiError(response, errorData),
+			};
+		}
+	} catch (error) {
+		return handleAuthError(error);
 	}
 }
 
@@ -337,36 +452,6 @@ export async function signOut(): Promise<void> {
 
 		redirect("/login");
 	} catch (error) {
-		// Check if this is a redirect error (which is expected)
-		if (error instanceof Error && error.message === "NEXT_REDIRECT") {
-			throw error; // Re-throw redirect errors
-		}
-
-		console.error("Signout error:", error);
-		// Still delete local session even if backend call fails
-		await deleteSession();
-		redirect("/login");
-	}
-}
-
-// Helper function to handle API errors consistently
-function handleApiError(response: Response, errorData: any): string {
-	switch (response.status) {
-		case 400:
-			return errorData.message || "Bad request. Please check your input.";
-		case 401:
-			return "Invalid credentials.";
-		case 403:
-			return "Access forbidden.";
-		case 404:
-			return "Resource not found.";
-		case 409:
-			return "Resource already exists.";
-		case 429:
-			return "Too many requests. Please try again later.";
-		case 500:
-			return "Server error. Please try again later.";
-		default:
-			return errorData.message || response.statusText || "An unexpected error occurred.";
+		handleAuthError(error);
 	}
 }

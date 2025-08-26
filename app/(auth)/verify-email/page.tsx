@@ -57,7 +57,7 @@ export default function VerifyEmailPage() {
 				setVerificationStatus("success");
 				// Redirect to login after 2 seconds
 				setTimeout(() => {
-					router.push("/login?message=Email verified successfully! Please login to continue.");
+					router.push("/login?message=Email verified successfully! Please login to start onboarding.");
 				}, 2000);
 			} else {
 				const errorData = await response.json().catch(() => ({}));
@@ -316,7 +316,7 @@ function EmailInputForm({ token }: { token: string }) {
 			});
 
 			if (response.ok) {
-				router.push("/login?message=Email verified successfully! Please login to continue.");
+				router.push("/login?message=Email verified successfully! Please login to start onboarding.");
 			} else {
 				const errorData = await response.json().catch(() => ({}));
 				setError(errorData.message || "Failed to verify email");

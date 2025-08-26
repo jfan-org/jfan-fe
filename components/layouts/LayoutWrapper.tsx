@@ -1,8 +1,10 @@
 // components/layout/LayoutWrapper.tsx
-import React from "react";
-// import { Header } from "./Header";
+"use client";
+import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import Header from "./Header";
+import { Header } from "./Header2";
+import { getSession } from "@/actions/session";
+import { signOut } from "@/actions/auth.action";
 
 interface User {
 	id: string;
@@ -20,10 +22,48 @@ interface LayoutWrapperProps {
 	className?: string;
 }
 
-const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ children, user, onLogout, showHeader = true, showFooter = true, className = "" }) => {
+const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ children, user: propUser, onLogout: propOnLogout, showHeader = true, showFooter = true, className = "" }) => {
+	const [sessionUser, setSessionUser] = useState<User | null>(null);
+	const [isLoading, setIsLoading] = useState(true);
+
+	// Fetch session data on component mount
+	useEffect(() => {
+		const fetchSession = async () => {
+			try {
+				const session = await getSession();
+				if (session) {
+					setSessionUser({
+						id: session.user.id,
+						name: session.user.name,
+						email: session.user.email,
+					});
+				}
+			} catch (error) {
+				console.error("Error fetching session:", error);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchSession();
+	}, []);
+
+	// Handle logout
+	const handleLogout = async () => {
+		if (propOnLogout) {
+			await propOnLogout();
+		} else {
+			await signOut();
+		}
+		setSessionUser(null);
+	};
+
+	// Use prop user if provided, otherwise use session user
+	const user = propUser || sessionUser;
+
 	return (
 		<div className={`min-h-screen flex flex-col ${className}`}>
-			{showHeader && <Header user={user} onLogout={onLogout} />}
+			{showHeader && <Header user={user} onLogout={handleLogout} />}
 
 			<main className="flex-1">{children}</main>
 
