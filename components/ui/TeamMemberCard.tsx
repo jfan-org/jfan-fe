@@ -112,21 +112,21 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+						className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 pt-8 md:pt-4"
 						onClick={handleCloseDetails}>
 						<motion.div
 							initial={{ opacity: 0, scale: 0.9, y: 20 }}
 							animate={{ opacity: 1, scale: 1, y: 0 }}
 							exit={{ opacity: 0, scale: 0.9, y: 20 }}
 							transition={{ duration: 0.3 }}
-							className="bg-gray-800 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col"
+							className="bg-gray-800 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[85vh] md:max-h-[90vh] flex flex-col"
 							onClick={(e) => e.stopPropagation()}>
 							{/* Modal Header */}
 							<div className="relative p-6 border-b border-gray-700">
 								<button
 									onClick={handleCloseDetails}
-									className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
-									<X className="w-6 h-6" />
+									className="absolute top-3 right-3 p-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded-full transition-colors touch-manipulation">
+									<X className="w-5 h-5 md:w-6 md:h-6" />
 								</button>
 
 								<div className="flex flex-col md:flex-row items-center md:items-start gap-6">
