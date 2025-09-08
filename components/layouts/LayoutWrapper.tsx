@@ -71,7 +71,7 @@ const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
 
 	return (
 		<div className={`min-h-screen flex flex-col ${className}`}>
-			{showHeader && <Header user={user} onLogout={handleLogout} />}
+			{showHeader && <Header />}
 
 			<main className="flex-1">{children}</main>
 
