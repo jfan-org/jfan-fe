@@ -10,6 +10,7 @@ import Card from "../ui/NewCard";
 import Button from "../ui/NewButton";
 import { motion } from "framer-motion";
 import LayoutWrapper from "../layouts/LayoutWrapper";
+import TeamSection from "../sections/TeamSection";
 
 const HomePage: NextPage = () => {
 	return (
@@ -186,6 +187,9 @@ const HomePage: NextPage = () => {
 					<div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-yellow-400/10 blur-3xl -z-10"></div>
 				</div>
 			</AnimatedSection>
+
+			{/* Team Section */}
+			<TeamSection />
 
 			{/* CTA Section */}
 			<AnimatedSection className="py-20 bg-gradient-to-r from-green-500 via-yellow-500 to-green-500">

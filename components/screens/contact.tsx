@@ -63,15 +63,15 @@ export default function ContactPage() {
 	};
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-orange-50">
+		<div className="min-h-screen bg-gray-900">
 			<Header />
 
 			{/* Hero Section */}
-			<section className="relative py-20 overflow-hidden">
+			<section className="relative py-20 overflow-hidden bg-gray-800">
 				{/* Background Elements */}
 				<div className="absolute inset-0">
-					<div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-emerald-200 to-transparent rounded-full opacity-20 blur-3xl" />
-					<div className="absolute top-1/2 -left-40 w-80 h-80 bg-gradient-to-tr from-orange-200 to-transparent rounded-full opacity-20 blur-3xl" />
+					<div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-green-400/10 to-transparent rounded-full blur-3xl" />
+					<div className="absolute top-1/2 -left-40 w-80 h-80 bg-gradient-to-tr from-yellow-400/10 to-transparent rounded-full blur-3xl" />
 				</div>
 
 				<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,16 +80,16 @@ export default function ContactPage() {
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6 }}>
-							<div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-orange-400 rounded-2xl mb-6">
-								<Mail className="w-8 h-8 text-white" />
+							<div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-yellow-400 rounded-2xl mb-6">
+								<Mail className="w-8 h-8 text-gray-900" />
 							</div>
-							<h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+							<h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
 								Get in{" "}
-								<span className="bg-gradient-to-r from-emerald-600 to-orange-500 bg-clip-text text-transparent">
+								<span className="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
 									Touch
 								</span>
 							</h1>
-							<p className="text-xl text-gray-600 max-w-3xl mx-auto">
+							<p className="text-xl text-gray-300 max-w-3xl mx-auto">
 								Have questions about JFAN? Need support? Want to partner with us? We&apos;d love to
 								hear from you and help you connect with Africa&apos;s talent ecosystem.
 							</p>
@@ -99,7 +99,7 @@ export default function ContactPage() {
 			</section>
 
 			{/* Contact Section */}
-			<section className="py-16">
+			<section className="py-16 bg-gray-900">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="grid lg:grid-cols-2 gap-12">
 						{/* Contact Form */}
@@ -107,13 +107,13 @@ export default function ContactPage() {
 							initial={{ opacity: 0, x: -30 }}
 							animate={{ opacity: 1, x: 0 }}
 							transition={{ duration: 0.6, delay: 0.2 }}>
-							<Card className="border-none shadow-2xl bg-white/80 backdrop-blur-sm">
+							<Card className="border border-gray-700 shadow-2xl bg-gray-800/80 backdrop-blur-sm">
 								<CardHeader>
-									<CardTitle className="text-2xl font-bold text-gray-900 flex items-center">
-										<MessageSquare className="w-6 h-6 mr-3 text-emerald-600" />
+									<CardTitle className="text-2xl font-bold text-white flex items-center">
+										<MessageSquare className="w-6 h-6 mr-3 text-green-400" />
 										Send us a Message
 									</CardTitle>
-									<CardDescription className="text-gray-600">
+									<CardDescription className="text-gray-300">
 										Fill out the form below and we&apos;ll get back to you as soon as
 										possible.
 									</CardDescription>
@@ -124,8 +124,8 @@ export default function ContactPage() {
 										<Alert
 											className={`mb-6 ${
 												submitMessage.type === "success"
-													? "border-green-500 bg-green-50"
-													: "border-red-500 bg-red-50"
+													? "border-green-500 bg-green-900/50"
+													: "border-red-500 bg-red-900/50"
 											}`}>
 											{submitMessage.type === "success" ? (
 												<CheckCircle className="h-4 w-4 text-green-600" />
@@ -151,16 +151,16 @@ export default function ContactPage() {
 													name="name"
 													render={({ field }) => (
 														<FormItem>
-															<FormLabel className="text-gray-700 font-medium">
+															<FormLabel className="text-gray-300 font-medium">
 																Full Name
 															</FormLabel>
 															<FormControl>
 																<div className="relative">
-																	<User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+																	<User className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
 																	<Input
 																		{...field}
 																		placeholder="John Doe"
-																		className="pl-10 border-gray-300 focus:border-emerald-500 focus:ring-emerald-500"
+																		className="pl-10 bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
 																	/>
 																</div>
 															</FormControl>
@@ -174,17 +174,17 @@ export default function ContactPage() {
 													name="email"
 													render={({ field }) => (
 														<FormItem>
-															<FormLabel className="text-gray-700 font-medium">
+															<FormLabel className="text-gray-300 font-medium">
 																Email Address
 															</FormLabel>
 															<FormControl>
 																<div className="relative">
-																	<Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+																	<Mail className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
 																	<Input
 																		{...field}
 																		type="email"
 																		placeholder="john@example.com"
-																		className="pl-10 border-gray-300 focus:border-emerald-500 focus:ring-emerald-500"
+																		className="pl-10 bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
 																	/>
 																</div>
 															</FormControl>
@@ -199,16 +199,16 @@ export default function ContactPage() {
 												name="subject"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel className="text-gray-700 font-medium">
+														<FormLabel className="text-gray-300 font-medium">
 															Subject
 														</FormLabel>
 														<FormControl>
 															<div className="relative">
-																<MessageSquare className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+																<MessageSquare className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
 																<Input
 																	{...field}
 																	placeholder="How can we help you?"
-																	className="pl-10 border-gray-300 focus:border-emerald-500 focus:ring-emerald-500"
+																	className="pl-10 bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500"
 																/>
 															</div>
 														</FormControl>
@@ -222,7 +222,7 @@ export default function ContactPage() {
 												name="message"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel className="text-gray-700 font-medium">
+														<FormLabel className="text-gray-300 font-medium">
 															Message
 														</FormLabel>
 														<FormControl>
@@ -230,7 +230,7 @@ export default function ContactPage() {
 																{...field}
 																placeholder="Tell us more about your inquiry..."
 																rows={6}
-																className="border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 resize-none"
+																className="bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-green-500 focus:ring-green-500 resize-none"
 															/>
 														</FormControl>
 														<FormMessage className="text-red-500" />
@@ -241,7 +241,7 @@ export default function ContactPage() {
 											<Button
 												type="submit"
 												disabled={isSubmitting}
-												className="w-full bg-gradient-to-r from-emerald-600 to-orange-500 hover:from-emerald-700 hover:to-orange-600 text-white font-semibold py-3 rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:scale-100 disabled:opacity-50">
+												className="w-full bg-gradient-to-r from-green-500 to-yellow-500 hover:from-green-600 hover:to-yellow-600 text-gray-900 font-semibold py-3 rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:scale-100 disabled:opacity-50">
 												{isSubmitting ? (
 													<>
 														<Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -268,46 +268,46 @@ export default function ContactPage() {
 							className="space-y-8">
 							{/* Contact Details */}
 							<div>
-								<h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+								<h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
 								<div className="space-y-6">
 									<div className="flex items-start space-x-4">
-										<div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-emerald-500 to-orange-400 rounded-xl flex items-center justify-center">
-											<Mail className="w-5 h-5 text-white" />
+										<div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-500 to-yellow-400 rounded-xl flex items-center justify-center">
+											<Mail className="w-5 h-5 text-gray-900" />
 										</div>
 										<div>
-											<h4 className="font-semibold text-gray-900">Email Us</h4>
-											<p className="text-gray-600">contact@jfan.africa</p>
-											<p className="text-sm text-gray-500 mt-1">
+											<h4 className="font-semibold text-white">Email Us</h4>
+											<p className="text-gray-300">contact@jfan.africa</p>
+											<p className="text-sm text-gray-400 mt-1">
 												We typically respond within 24 hours
 											</p>
 										</div>
 									</div>
 
 									<div className="flex items-start space-x-4">
-										<div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-emerald-500 to-orange-400 rounded-xl flex items-center justify-center">
-											<MapPin className="w-5 h-5 text-white" />
+										<div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-500 to-yellow-400 rounded-xl flex items-center justify-center">
+											<MapPin className="w-5 h-5 text-gray-900" />
 										</div>
 										<div>
-											<h4 className="font-semibold text-gray-900">Headquarters</h4>
-											<p className="text-gray-600">Abuja FCT, Nigeria</p>
-											<p className="text-sm text-gray-500 mt-1">
+											<h4 className="font-semibold text-white">Headquarters</h4>
+											<p className="text-gray-300">Abuja FCT, Nigeria</p>
+											<p className="text-sm text-gray-400 mt-1">
 												Serving all of Africa
 											</p>
 										</div>
 									</div>
 
 									<div className="flex items-start space-x-4">
-										<div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-emerald-500 to-orange-400 rounded-xl flex items-center justify-center">
-											<Clock className="w-5 h-5 text-white" />
+										<div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-500 to-yellow-400 rounded-xl flex items-center justify-center">
+											<Clock className="w-5 h-5 text-gray-900" />
 										</div>
 										<div>
-											<h4 className="font-semibold text-gray-900">
+											<h4 className="font-semibold text-white">
 												Business Hours
 											</h4>
-											<p className="text-gray-600">
+											<p className="text-gray-300">
 												Monday - Friday: 9:00 AM - 6:00 PM (EAT)
 											</p>
-											<p className="text-sm text-gray-500 mt-1">
+											<p className="text-sm text-gray-400 mt-1">
 												Emergency support available 24/7
 											</p>
 										</div>
@@ -317,7 +317,7 @@ export default function ContactPage() {
 
 							{/* Support Categories */}
 							<div>
-								<h3 className="text-2xl font-bold text-gray-900 mb-6">How Can We Help?</h3>
+								<h3 className="text-2xl font-bold text-white mb-6">How Can We Help?</h3>
 								<div className="grid gap-4">
 									{[
 										{
@@ -344,16 +344,16 @@ export default function ContactPage() {
 											initial={{ opacity: 0, y: 20 }}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-											className="p-4 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-emerald-200 transition-colors">
+											className="p-4 rounded-xl bg-gray-800/60 backdrop-blur-sm border border-gray-700 hover:border-green-500/50 transition-colors">
 											<div className="flex items-start space-x-3">
 												<div className="flex-shrink-0">
-													<item.icon className="w-5 h-5 text-emerald-600 mt-0.5" />
+													<item.icon className="w-5 h-5 text-green-400 mt-0.5" />
 												</div>
 												<div>
-													<h4 className="font-semibold text-gray-900">
+													<h4 className="font-semibold text-white">
 														{item.title}
 													</h4>
-													<p className="text-sm text-gray-600 mt-1">
+													<p className="text-sm text-gray-300 mt-1">
 														{item.description}
 													</p>
 												</div>

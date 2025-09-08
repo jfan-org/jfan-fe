@@ -54,7 +54,7 @@ const Header: React.FC = () => {
 						))}
 
 						{/* Country Selector */}
-						<div className="relative">
+						{/* <div className="relative">
 							<motion.button
 								onClick={() => setShowCountryDropdown(!showCountryDropdown)}
 								className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800"
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
 									</motion.div>
 								)}
 							</AnimatePresence>
-						</div>
+						</div> */}
 					</div>
 
 					{/* Mobile menu button */}
