@@ -310,16 +310,10 @@ const Footer: React.FC = () => {
 					))}
 				</div>
 
-				<div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-					<p className="text-gray-400">© 2024 Job-seekers and Freelancers Africa Network. All rights reserved.</p>
-					<div className="flex items-center space-x-4 mt-4 md:mt-0">
-						<span className="text-gray-400">Powered by:</span>
-						<div className="flex items-center space-x-2">
-							<span className="text-green-400 font-semibold">Next.js</span>
-							<span className="text-gray-600">•</span>
-							<span className="text-yellow-400 font-semibold">Nest.js</span>
-						</div>
-					</div>
+				<div className="border-t border-gray-700 mt-12 pt-8  mx-auto w-full">
+					<p className="text-gray-400 text-center">
+						© 2025 Job-seekers and Freelancers Africa Network. All rights reserved.
+					</p>
 				</div>
 			</div>
 		</footer>
