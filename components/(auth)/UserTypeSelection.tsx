@@ -25,7 +25,7 @@ const DynamicIcon = ({ iconName, className }: { iconName: string; className?: st
 	};
 
 	const IconComponent = iconMap[iconName];
-	
+
 	if (!IconComponent) {
 		return <Circle className={className} />;
 	}
@@ -40,17 +40,15 @@ export function UserTypeSelection({ onUserTypeSelect }: UserTypeSelectionProps) 
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.3 }}
 			className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			
 			{/* Header */}
 			<div className="text-center mb-16">
-				<div className="text-6xl mb-6">=K</div>
+				{/* <div className="text-6xl mb-6">Registration Page</div> */}
 				<h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
 					Join JFAN Community
 				</h1>
 				<p className="text-xl text-gray-300 max-w-3xl mx-auto">
-					Choose your role and become part of Africa&apos;s largest professional
-					network. Connect, collaborate, and contribute to economic growth
-					across the continent.
+					Choose your role and become part of Africa&apos;s largest professional network. Connect, collaborate, and
+					contribute to economic growth across the continent.
 				</p>
 			</div>
 
@@ -69,9 +67,7 @@ export function UserTypeSelection({ onUserTypeSelect }: UserTypeSelectionProps) 
 								<h3 className={`text-xl font-bold ${userTypeConfig.color} mb-2`}>
 									{userTypeConfig.name}
 								</h3>
-								<p className="text-gray-300 text-sm mb-4">
-									{userTypeConfig.description}
-								</p>
+								<p className="text-gray-300 text-sm mb-4">{userTypeConfig.description}</p>
 							</div>
 
 							<div className="space-y-2 mb-6">

@@ -2,7 +2,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Footer from "./Footer";
-import { Header } from "./Header2";
+// import { Header } from "./Header2";j
+import Header from "./Header";
 import { getSession } from "@/actions/session";
 import { signOut } from "@/actions/auth.action";
 
@@ -22,7 +23,14 @@ interface LayoutWrapperProps {
 	className?: string;
 }
 
-const LayoutWrapper: React.FC<LayoutWrapperProps> = ({ children, user: propUser, onLogout: propOnLogout, showHeader = true, showFooter = true, className = "" }) => {
+const LayoutWrapper: React.FC<LayoutWrapperProps> = ({
+	children,
+	user: propUser,
+	onLogout: propOnLogout,
+	showHeader = true,
+	showFooter = true,
+	className = "",
+}) => {
 	const [sessionUser, setSessionUser] = useState<User | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 
