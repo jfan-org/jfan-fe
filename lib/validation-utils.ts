@@ -1,4 +1,4 @@
-import { ZodError, ZodSchema } from "zod";
+import { ZodError } from "zod";
 import { UserType } from "@/types/auth.types";
 import { getValidationSchema } from "./validation.auth";
 

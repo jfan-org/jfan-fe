@@ -38,7 +38,7 @@ export function JobSelector({ selectedJobId, onJobSelect, error }: JobSelectorPr
 		setSelectedIndustry,
 		setSelectedSector,
 		clearFilters,
-		getJobPath,
+		// getJobPath,
 	} = useJobSearch();
 
 	// Pre-load job paths for filtered jobs to avoid individual API calls
@@ -242,7 +242,7 @@ export function JobSelector({ selectedJobId, onJobSelect, error }: JobSelectorPr
 								)}
 								{searchTerm && (
 									<Badge variant="secondary" className="bg-orange-600 text-white">
-										Search: "{searchTerm}"
+										Search: &quot;{searchTerm}&quot;
 									</Badge>
 								)}
 							</div>

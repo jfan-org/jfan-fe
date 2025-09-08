@@ -1,5 +1,6 @@
-export const NEXT_PUBLIC_BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-console.log(NEXT_PUBLIC_BACKEND_URL);
+export const NEXT_PUBLIC_BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000/api/v1";
+console.log("Backend URL from constants:", NEXT_PUBLIC_BACKEND_URL);
+console.log("Environment variable NEXT_PUBLIC_BACKEND_URL:", process.env.NEXT_PUBLIC_BACKEND_URL);
 
 export const sidebarLinks = [
 	{

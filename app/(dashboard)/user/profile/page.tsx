@@ -1,4 +1,3 @@
-import { getProfile } from "@/actions/auth.action";
 import { getSession } from "@/actions/session";
 import ProfileForm from "@/components/ui/profile/ProfileForm";
 import { authFetch } from "@/lib/authFetch";

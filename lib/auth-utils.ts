@@ -53,7 +53,7 @@ export function transformRegistrationData(userType: UserType, formData: UserRegi
 		stateId: formData.stateId,
 		cityId: formData.cityId,
 		gender: formData.gender,
-		userType,
+		// Note: userType is not included in the request body as it's determined by the endpoint
 	};
 
 	// Add type-specific fields
@@ -64,7 +64,7 @@ export function transformRegistrationData(userType: UserType, formData: UserRegi
 				...baseData,
 				companyName: companyData.companyName,
 				industry: companyData.industry,
-				companySize: companyData.companySize,
+				// companySize is not expected by CompanyRegisterDto
 				description: companyData.description,
 			};
 			
@@ -77,12 +77,14 @@ export function transformRegistrationData(userType: UserType, formData: UserRegi
 
 		case UserType.TALENT:
 			const talentData = formData as any;
-			return {
+			const talentPayload = {
 				...baseData,
 				selectedJobId: talentData.selectedJobId,
 				experience: talentData.experience,
 				skills: talentData.skills,
 			};
+			// Remove userType as it's determined by endpoint
+			return talentPayload;
 
 		case UserType.CYBER_AGENT:
 			const cyberAgentData = formData as any;

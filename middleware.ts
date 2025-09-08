@@ -9,13 +9,8 @@ export default async function middleware(req: NextRequest) {
 		return NextResponse.redirect(new URL("/login", req.nextUrl));
 	}
 
-	// If user is not onboarded and trying to access protected routes (not onboarding)
-	if (!session.user.isOnboarded && !req.nextUrl.pathname.startsWith("/onboarding")) {
-		return NextResponse.redirect(new URL("/onboarding", req.nextUrl));
-	}
-
-	// If user is onboarded and trying to access onboarding, redirect to dashboard
-	if (session.user.isOnboarded && req.nextUrl.pathname.startsWith("/onboarding")) {
+	// If trying to access onboarding, redirect to dashboard (no onboarding needed)
+	if (req.nextUrl.pathname.startsWith("/onboarding")) {
 		return NextResponse.redirect(new URL("/redirect-user", req.nextUrl));
 	}
 
@@ -25,7 +20,6 @@ export default async function middleware(req: NextRequest) {
 export const config = {
 	matcher: [
 		"/profile",
-		"/onboarding/:path*",
 		"/(dashboard)/:path*",
 		"/admin/:path*",
 		"/employer/:path*", 

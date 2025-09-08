@@ -96,7 +96,7 @@ export function DynamicRegistrationForm({ userType, onBack, onSuccess }: Dynamic
 		},
 	});
 
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (data: UserRegistrationData) => {
 		try {
 			setIsSubmitting(true);
 			setSubmitError("");
@@ -115,8 +115,13 @@ export function DynamicRegistrationForm({ userType, onBack, onSuccess }: Dynamic
 
 			if (result && !result.success) {
 				setSubmitError(result.message || "Registration failed. Please try again.");
-			} else {
-				onSuccess?.();
+			} else if (result && result.success) {
+				// If there's a redirect URL, navigate to it
+				if (result.redirectTo) {
+					window.location.href = result.redirectTo;
+				} else {
+					onSuccess?.();
+				}
 			}
 		} catch (error) {
 			console.error("Registration error:", error);

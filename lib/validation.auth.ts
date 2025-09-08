@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { UserType, Gender } from "@/types/auth.types";
+import { UserType } from "@/types/auth.types";
 
 // Base schemas
 export const loginSchema = z.object({

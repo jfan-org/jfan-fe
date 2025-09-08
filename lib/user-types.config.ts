@@ -141,13 +141,13 @@ export function getUserTypeNavigation(userType: UserType) {
 
 export function getRegistrationEndpoint(userType: UserType): string {
 	const endpoints = {
-		[UserType.COMPANY]: "/auth/company/register",
-		[UserType.TALENT]: "/auth/talent/register",
-		[UserType.CYBER_AGENT]: "/auth/specialized/cyber-agent/register",
-		[UserType.SCOUT]: "/auth/specialized/scout/register",
-		[UserType.PROFESSIONAL]: "/auth/specialized/professional/register",
-		[UserType.MENTOR]: "/auth/specialized/mentor/register",
-		[UserType.PHILANTHROPIST]: "/auth/specialized/philanthropist/register",
+		[UserType.COMPANY]: "/auth/register/company",
+		[UserType.TALENT]: "/auth/register/talent",
+		[UserType.CYBER_AGENT]: "/auth/register/cyber-agent",
+		[UserType.SCOUT]: "/auth/register/scout",
+		[UserType.PROFESSIONAL]: "/auth/register/professional",
+		[UserType.MENTOR]: "/auth/register/mentor",
+		[UserType.PHILANTHROPIST]: "/auth/register/philanthropist",
 	};
 
 	return endpoints[userType] || "/auth/register";

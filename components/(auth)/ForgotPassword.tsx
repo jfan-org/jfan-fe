@@ -55,10 +55,10 @@ export default function ForgotPasswordPage() {
 
 					<div>
 						<p className="text-gray-600 mb-4">
-							We've sent a password reset link to <strong>{getValues("email")}</strong>
+							We&apos;ve sent a password reset link to <strong>{getValues("email")}</strong>
 						</p>
 						<p className="text-sm text-gray-500">
-							Didn't receive the email? Check your spam folder or try again.
+							Didn&apos;t receive the email? Check your spam folder or try again.
 						</p>
 					</div>
 

@@ -106,17 +106,9 @@ export type UserRegistrationData =
 
 // Form state interfaces
 export interface RegistrationFormState {
-	step: "userType" | "form" | "verification" | "onboarding";
+	step: "userType" | "form" | "verification";
 	selectedUserType: UserType | null;
 	formData: Partial<UserRegistrationData>;
-	errors: Record<string, string>;
-	isLoading: boolean;
-}
-
-export interface OnboardingFormState {
-	currentStep: number;
-	totalSteps: number;
-	data: Record<string, any>;
 	errors: Record<string, string>;
 	isLoading: boolean;
 }
@@ -158,7 +150,6 @@ export interface AuthResponse {
 		email: string;
 		role: UserRole;
 		userType: UserType;
-		isOnboarded: boolean;
 	};
 	tokens?: {
 		accessToken: string;

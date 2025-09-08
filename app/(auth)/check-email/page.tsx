@@ -1,14 +1,14 @@
 // app/check-email/page.tsx
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { AuthLayout } from "@/components/layouts/AuthLayout";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { resendVerificationCode } from "@/actions/auth.action";
 
-export default function CheckEmailPage() {
+function CheckEmailContent() {
 	const searchParams = useSearchParams();
 	const email = searchParams.get("email") || "";
 	const [isResending, setIsResending] = React.useState(false);
@@ -42,7 +42,7 @@ export default function CheckEmailPage() {
 	};
 
 	return (
-		<AuthLayout title="Check your email" subtitle="We've sent you a verification link">
+		<AuthLayout title="Check your email" subtitle="We&apos;ve sent you a verification link">
 			<div className="w-full space-y-6">
 				<div className="bg-green-50 border border-green-200 rounded-lg p-6">
 					<div className="flex items-start space-x-3">
@@ -56,7 +56,7 @@ export default function CheckEmailPage() {
 						</svg>
 						<div className="flex-1">
 							<h3 className="text-lg font-medium text-green-800">Verification email sent!</h3>
-							<p className="mt-2 text-sm text-green-700">We've sent a verification link to:</p>
+							<p className="mt-2 text-sm text-green-700">We&apos;ve sent a verification link to:</p>
 							<p className="mt-1 font-medium text-green-800">{email}</p>
 						</div>
 					</div>
@@ -85,7 +85,7 @@ export default function CheckEmailPage() {
 					</Button>
 
 					<div className="text-center space-y-2">
-						<p className="text-sm text-gray-600">Didn't receive the email? Check your spam folder.</p>
+						<p className="text-sm text-gray-600">Didn&apos;t receive the email? Check your spam folder.</p>
 						<p className="text-sm text-gray-600">
 							Already verified?{" "}
 							<Link href="/login" className="text-green-600 hover:text-green-700 font-medium">
@@ -96,5 +96,13 @@ export default function CheckEmailPage() {
 				</div>
 			</div>
 		</AuthLayout>
+	);
+}
+
+export default function CheckEmailPage() {
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<CheckEmailContent />
+		</Suspense>
 	);
 }

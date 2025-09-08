@@ -14,7 +14,6 @@ export interface Session {
 		email: string;
 		role: UserRole;
 		userType: UserType;
-		isOnboarded: boolean;
 	};
 	accessToken: string;
 	refreshToken: string;
@@ -46,13 +45,12 @@ export async function createSession(payload: Session | LegacySession) {
 					...(payload as LegacySession),
 					user: {
 						...payload.user,
-						role: payload.user.role as UserRole,
+						role: payload.user.role as unknown as UserRole,
 						userType: UserType.TALENT, // Default for legacy sessions
-						isOnboarded: false, // Default for legacy sessions
 					},
 			  };
 
-	const session = await new SignJWT(sessionPayload).setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("7d").sign(encodedKey);
+	const session = await new SignJWT(sessionPayload as any).setProtectedHeader({ alg: "HS256" }).setIssuedAt().setExpirationTime("7d").sign(encodedKey);
 
 	const cookieStore = await cookies();
 	cookieStore.set("session", session, {
@@ -75,7 +73,7 @@ export async function getSession(): Promise<Session | null> {
 			algorithms: ["HS256"],
 		});
 
-		return payload as Session;
+		return payload as unknown as Session;
 	} catch (err) {
 		console.error("Failed to verify the session", err);
 		return null;
@@ -145,15 +143,6 @@ export async function requireSession(): Promise<Session> {
 	return session;
 }
 
-export async function requireOnboardedSession(): Promise<Session> {
-	const session = await requireSession();
-	if (!session.user.isOnboarded) {
-		redirect("/onboarding");
-	}
-	return session;
-}
-
-
 export async function redirectToAppropriateRoute(session?: Session) {
 	const currentSession = session || (await getSession());
 
@@ -164,9 +153,4 @@ export async function redirectToAppropriateRoute(session?: Session) {
 	const { getRedirectUrl } = await import("@/lib/Authorization");
 	const redirectUrl = getRedirectUrl(currentSession);
 	redirect(redirectUrl);
-}
-
-// Mark user as onboarded
-export async function completeOnboarding(): Promise<Session | null> {
-	return await updateSession({ isOnboarded: true });
 }

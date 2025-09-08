@@ -1,8 +1,12 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { createSession, deleteSession, updateTokens, getSession, completeOnboarding } from "@/actions/session";
-import { NEXT_PUBLIC_BACKEND_URL } from "@/lib/constants";
+import { createSession, deleteSession, updateTokens, getSession } from "@/actions/session";
+import apiClient from "@/lib/axios";
+
+// Use server-side environment variable for Server Actions
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:4000/api/v1";
+console.log("Server Action - Backend URL:", BACKEND_URL);
 import { authFetch } from "@/lib/authFetch";
 import {
 	ForgotPasswordInput,
@@ -27,16 +31,9 @@ interface ActionResult {
 	data?: any;
 }
 
-// Onboarding data interface
-interface OnboardingData {
-	profileData?: any;
-	locationData?: any;
-	preferencesData?: any;
-	skillsData?: any;
-	[key: string]: any;
-}
+// Onboarding removed - users go directly to dashboard
 export const getProfile = async () => {
-	const response = await authFetch(`${NEXT_PUBLIC_BACKEND_URL}/users/me`);
+	const response = await authFetch(`${BACKEND_URL}/users/me`);
 
 	const result = await response.json();
 	return result;
@@ -44,7 +41,7 @@ export const getProfile = async () => {
 
 export const refreshToken = async (oldRefreshToken: string) => {
 	try {
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/refresh`, {
+		const response = await fetch(`${BACKEND_URL}/auth/refresh`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -74,22 +71,55 @@ export async function registerUser(userType: UserType, formData: UserRegistratio
 	try {
 		const endpoint = getRegistrationEndpoint(userType);
 		const payload = transformRegistrationData(userType, formData);
-
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}${endpoint}`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(payload),
+		const fullUrl = `${BACKEND_URL}${endpoint}`;
+		
+		console.log("Registration attempt:", {
+			userType,
+			endpoint,
+			backendUrl: BACKEND_URL,
+			fullUrl,
 		});
 
-		if (response.ok) {
-			const result = await response.json();
-			redirect(`/verify-email?email=${encodeURIComponent(formData.email)}`);
-		} else {
-			const errorData = await response.json().catch(() => ({}));
-			return {
-				success: false,
-				message: handleApiError(response, errorData),
+		try {
+			console.log("About to make axios request to:", endpoint);
+			console.log("Request payload:", JSON.stringify(payload, null, 2));
+			
+			const response = await apiClient.post(endpoint, payload);
+			
+			console.log("Success response received");
+			return { 
+				success: true, 
+				...response.data,
+				redirectTo: `/verify-email?email=${encodeURIComponent(formData.email)}`
 			};
+		} catch (axiosError: any) {
+			if (axiosError.response) {
+				// The request was made and the server responded with a status code
+				// that falls out of the range of 2xx
+				console.log("Axios error with response:", {
+					status: axiosError.response.status,
+					statusText: axiosError.response.statusText,
+					data: axiosError.response.data
+				});
+				return {
+					success: false,
+					message: axiosError.response.data?.message || `Request failed with status ${axiosError.response.status}`,
+				};
+			} else if (axiosError.request) {
+				// The request was made but no response was received
+				console.log("Axios error - no response:", axiosError.request);
+				return {
+					success: false,
+					message: "No response received from server",
+				};
+			} else {
+				// Something happened in setting up the request that triggered an Error
+				console.log("Axios error:", axiosError.message);
+				return {
+					success: false,
+					message: axiosError.message,
+				};
+			}
 		}
 	} catch (error) {
 		return handleAuthError(error);
@@ -102,7 +132,7 @@ export async function signUp(formData: SignupInput): Promise<ActionResult> {
 		// Validate input data
 		const validatedData = signupSchema.parse(formData);
 
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/register`, {
+		const response = await fetch(`${BACKEND_URL}/auth/register`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -139,7 +169,7 @@ export async function signIn(formData: LoginInput): Promise<ActionResult> {
 		// Validate input data
 		const validatedData = loginSchema.parse(formData);
 
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/login`, {
+		const response = await fetch(`${BACKEND_URL}/auth/login`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -192,18 +222,13 @@ export async function signIn(formData: LoginInput): Promise<ActionResult> {
 					email: userData.email,
 					role: userData.role,
 					userType: userData.userType || UserType.TALENT,
-					isOnboarded: userData.isOnboarded || false,
 				},
 				accessToken: tokensData.accessToken,
 				refreshToken: tokensData.refreshToken,
 			});
 
-			// Redirect based on onboarding status
-			if (!userData.isOnboarded) {
-				redirect("/onboarding");
-			} else {
-				redirect("/redirect-user");
-			}
+			// Redirect directly to appropriate dashboard (no onboarding)
+			redirect("/redirect-user");
 		} else {
 			const errorData = await response.json().catch(() => ({}));
 
@@ -222,7 +247,7 @@ export async function forgotPassword(formData: ForgotPasswordInput): Promise<Act
 		// Validate input data
 		const validatedData = forgotPasswordSchema.parse(formData);
 
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/forgot-password`, {
+		const response = await fetch(`${BACKEND_URL}/auth/forgot-password`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -255,7 +280,7 @@ export async function resetPassword(token: string, formData: ResetPasswordInput)
 		// Validate input data
 		const validatedData = resetPasswordSchema.parse(formData);
 
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/reset-password`, {
+		const response = await fetch(`${BACKEND_URL}/auth/reset-password`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -286,7 +311,7 @@ export async function verifyEmail(email: string, formData: VerifyEmailInput): Pr
 		// Validate input data
 		const validatedData = verifyEmailSchema.parse(formData);
 
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/verify-email`, {
+		const response = await fetch(`${BACKEND_URL}/auth/verify-email`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -314,7 +339,7 @@ export async function verifyEmail(email: string, formData: VerifyEmailInput): Pr
 
 export async function resendVerificationCode(email: string): Promise<ActionResult> {
 	try {
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/resend-verification`, {
+		const response = await fetch(`${BACKEND_URL}/auth/resend-verification`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -347,98 +372,12 @@ export async function resendVerificationCode(email: string): Promise<ActionResul
 	}
 }
 
-// Onboarding completion action
-export async function completeOnboardingFlow(onboardingData: OnboardingData): Promise<AuthResult> {
-	try {
-		const session = await getSession();
-		if (!session) {
-			redirect("/login");
-		}
-
-		console.log("Original onboarding data:", JSON.stringify(onboardingData, null, 2));
-
-		// Helper function to map frontend experience levels to backend enum values
-		const mapExperienceLevel = (frontendLevel: string): string | undefined => {
-			const mappings: Record<string, string> = {
-				"Entry-level": "entry_level",
-				"Junior-level": "junior",
-				"Mid-level": "mid_level",
-				"Senior-level": "senior",
-				"Lead-level": "lead",
-				"Executive-level": "executive",
-				// Alternative mappings used in onboarding forms
-				Entry: "entry_level",
-				Junior: "junior",
-				Mid: "mid_level",
-				Senior: "senior",
-				Lead: "lead",
-				Executive: "executive",
-			};
-			return mappings[frontendLevel];
-		};
-
-		// Transform nested data structure to flat structure expected by backend
-		const profileData = onboardingData.profileData || {};
-		const preferencesData = onboardingData.preferencesData || {};
-
-		const transformedData = {
-			// Required user basic info from session
-			firstName: session.user.name?.split(" ")[0] || "",
-			lastName: session.user.name?.split(" ").slice(1).join(" ") || "",
-			email: session.user.email || "",
-
-			// Map profile data to OnboardingDto fields
-			bio: profileData.bio || profileData.description,
-			experienceLevel: profileData.experienceLevel ? mapExperienceLevel(profileData.experienceLevel) : undefined,
-			currentJobTitle: profileData.currentJobTitle,
-
-			// Map skills to languages array for now (adjust based on actual form structure)
-			languages: profileData.keySkills ? [profileData.keySkills] : undefined,
-
-			// Map preferences - you may need to adjust these mappings based on your form
-			preferredJobTypes: preferencesData["Job Preferences"] || [],
-
-			// Location data (if available)
-			...(onboardingData.locationData || {}),
-
-			// Skills data (if available)
-			...(onboardingData.skillsData || {}),
-		};
-
-		// Remove undefined fields to avoid validation errors
-		Object.keys(transformedData).forEach((key) => {
-			if (transformedData[key] === undefined || transformedData[key] === "") {
-				delete transformedData[key];
-			}
-		});
-
-		console.log("Transformed onboarding data:", JSON.stringify(transformedData, null, 2));
-
-		const response = await authFetch(`${NEXT_PUBLIC_BACKEND_URL}/users/complete-onboarding`, {
-			method: "POST",
-			body: JSON.stringify(transformedData),
-		});
-
-		if (response.ok) {
-			// Update session to mark user as onboarded
-			await completeOnboarding();
-			redirect("/redirect-user");
-		} else {
-			const errorData = await response.json().catch(() => ({}));
-			return {
-				success: false,
-				message: handleApiError(response, errorData),
-			};
-		}
-	} catch (error) {
-		return handleAuthError(error);
-	}
-}
+// Onboarding has been simplified - users go directly to dashboard after registration
 
 export async function signOut(): Promise<void> {
 	try {
 		// Call backend logout endpoint if needed
-		const response = await fetch(`${NEXT_PUBLIC_BACKEND_URL}/auth/logout`, {
+		const response = await fetch(`${BACKEND_URL}/auth/logout`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

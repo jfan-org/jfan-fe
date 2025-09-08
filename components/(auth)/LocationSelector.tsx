@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { MapPin, Search, Loader2, AlertCircle, Globe, Map, Navigation } from "lucide-react";
 
-import { Country, State, City } from "@/types/auth.types";
+// import { Country, State, City } from "@/types/auth.types";
 import { useLocationData } from "@/hooks/useLocationData";
 
 interface LocationSelectorProps {
@@ -214,7 +214,7 @@ export function LocationSelector({ form }: LocationSelectorProps) {
 					{searchTerm.trim() && searchResults.length === 0 && (
 						<div className="text-center py-4 text-gray-400">
 							<MapPin className="w-6 h-6 mx-auto mb-2 opacity-50" />
-							<p>No locations found matching "{searchTerm}"</p>
+							<p>No locations found matching &quot;{searchTerm}&quot;</p>
 						</div>
 					)}
 				</div>

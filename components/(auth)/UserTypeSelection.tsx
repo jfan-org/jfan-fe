@@ -2,11 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Building, Star, Shield, Target, Award, Users, Heart, Circle } from "lucide-react";
 import { UserType } from "@/types/auth.types";
-import { userTypesConfig, getUserTypeConfig } from "@/lib/user-types.config";
+import { userTypesConfig } from "@/lib/user-types.config";
 
 interface UserTypeSelectionProps {
 	onUserTypeSelect: (userType: UserType) => void;
@@ -14,21 +14,20 @@ interface UserTypeSelectionProps {
 
 // Dynamic icon component
 const DynamicIcon = ({ iconName, className }: { iconName: string; className?: string }) => {
-	const iconMap: Record<string, React.ComponentType<any>> = {
-		Building: require("lucide-react").Building,
-		Star: require("lucide-react").Star,
-		Shield: require("lucide-react").Shield,
-		Target: require("lucide-react").Target,
-		Award: require("lucide-react").Award,
-		Users: require("lucide-react").Users,
-		Heart: require("lucide-react").Heart,
+	const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+		Building,
+		Star,
+		Shield,
+		Target,
+		Award,
+		Users,
+		Heart,
 	};
 
 	const IconComponent = iconMap[iconName];
 	
 	if (!IconComponent) {
-		const DefaultIcon = require("lucide-react").Circle;
-		return <DefaultIcon className={className} />;
+		return <Circle className={className} />;
 	}
 
 	return <IconComponent className={className} />;
@@ -49,7 +48,7 @@ export function UserTypeSelection({ onUserTypeSelect }: UserTypeSelectionProps) 
 					Join JFAN Community
 				</h1>
 				<p className="text-xl text-gray-300 max-w-3xl mx-auto">
-					Choose your role and become part of Africa's largest professional
+					Choose your role and become part of Africa&apos;s largest professional
 					network. Connect, collaborate, and contribute to economic growth
 					across the continent.
 				</p>
