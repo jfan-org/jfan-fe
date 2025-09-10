@@ -18,20 +18,20 @@ const HomePage: NextPage = () => {
 			<HeroSection />
 
 			{/* About Section */}
-			<AnimatedSection className="py-20 bg-gray-800">
+			<AnimatedSection className="py-12 md:py-20 bg-gray-800">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="text-center mb-16">
-						<h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+					<div className="text-center mb-12 md:mb-16">
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
 							About JFAN
 						</h2>
-						<p className="text-xl text-gray-300 max-w-3xl mx-auto">
+						<p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
 							Jobs For Africa Now (JFAN) is a comprehensive platform designed to connect Africa's vast
 							talent pool with global opportunities while fostering professional development across the
 							continent.
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-8">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
 						{[
 							{
 								icon: <Target className="w-8 h-8" />,
@@ -53,9 +53,9 @@ const HomePage: NextPage = () => {
 							},
 						].map((item, index: number) => (
 							<Card key={index}>
-								<div className="text-yellow-400 mb-4">{item.icon}</div>
-								<h3 className="text-xl font-bold mb-4 text-green-400">{item.title}</h3>
-								<p className="text-gray-300">{item.description}</p>
+								<div className="text-yellow-400 mb-3 md:mb-4 flex justify-center">{item.icon}</div>
+								<h3 className="text-lg sm:text-xl font-bold mb-3 md:mb-4 text-green-400">{item.title}</h3>
+								<p className="text-gray-300 text-sm sm:text-base leading-relaxed">{item.description}</p>
 							</Card>
 						))}
 					</div>
@@ -63,19 +63,19 @@ const HomePage: NextPage = () => {
 			</AnimatedSection>
 
 			{/* Regional Structure */}
-			<AnimatedSection className="py-20 bg-gray-900">
+			<AnimatedSection className="py-12 md:py-20 bg-gray-900">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="text-center mb-16">
-						<h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+					<div className="text-center mb-12 md:mb-16">
+						<h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
 							Continental Regions
 						</h2>
-						<p className="text-xl text-gray-300">
+						<p className="text-base sm:text-lg md:text-xl text-gray-300 px-4">
 							JFAN operates across five strategic regions, each with dedicated leadership and localized
 							support
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 						{regions.map((region: Region, index: number) => (
 							<Card key={index} className="cursor-pointer">
 								<div className="flex items-center space-x-4 mb-4">

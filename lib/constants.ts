@@ -348,62 +348,46 @@ export interface TeamMember {
 	};
 	skills: string[];
 	experience: string;
-	education: string;
+	education?: string;
 	achievements: string[];
+	pdfDocument?: {
+		url: string;
+	};
 }
 
 export const teamMembers: TeamMember[] = [
 	{
 		id: "1",
-		name: "Amb IDAH Onyilokwu Kingsley David",
-		position: "Founder/CEO IQ-IHRAP; JFAN",
+		name: "Sir Khalifah Onu",
+		position: "National Chairman and Nigerian Country Project Team Lead, JFAN",
 		department: "Executive Leadership",
-		bio: "Visionary leader with over 15 years of experience in African economic development and talent mobilization. Dr. Hassan has spearheaded numerous initiatives connecting African professionals globally.",
-		biography: "Ambassador IDAH Onyilokwu Kingsley David is a distinguished leader, entrepreneur, and advocate for African economic development. With over 15 years of dedicated experience in talent mobilization and economic empowerment across Africa, he has established himself as a visionary in connecting African professionals with global opportunities.\n\nAs the Founder and CEO of IQ-IHRAP (Intelligence Quotient - Integrated Human Resource and Project Management) and JFAN (Jobs For Africa Now), Ambassador David has pioneered innovative approaches to addressing unemployment and underemployment across the African continent. His work focuses on creating sustainable pathways for African talent to access international markets while building robust local economies.\n\nHis leadership philosophy centers on the belief that Africa's greatest resource is its people, and through strategic talent development and international partnerships, the continent can achieve unprecedented economic growth. Under his guidance, JFAN has grown into a comprehensive platform serving millions of African professionals worldwide.\n\nAmbassador David holds advanced degrees in Development Economics and has been recognized internationally for his contributions to African economic development. He regularly speaks at international forums on topics ranging from digital transformation in Africa to sustainable development goals, and has been featured in numerous publications for his innovative approaches to talent mobilization.",
-		image: "/team/amb-kingsley-david-ceo.jpeg",
-		socialLinks: {
-			linkedin: "https://linkedin.com/in/dr-amina-hassan",
-			twitter: "https://twitter.com/aminahassan",
-			email: "amina.hassan@jfan.africa",
-		},
-		skills: ["Strategic Leadership", "Economic Development", "Public Speaking", "Policy Development"],
-		experience: "15+ years in African Economic Development",
-		education: "PhD in Development Economics, University of Oxford",
-		achievements: [
-			"Featured in Forbes Africa 40 Under 40",
-			"Led $50M funding round for African talent initiatives",
-			"Keynote speaker at African Union Economic Summit",
-		],
-	},
-	{
-		id: "2",
-		name: "Barr Hezekiah O. IMONIVWERHA",
-		position: "Chief Consultant JFAN",
-		department: "Technology",
-		bio: "Development Manager (CBDM) – 2023, Certified Physical Security Manager (CPSM) – 2021, Certified Intelligence Analyst (CINTA) – 2020, Certified Cyber Breach Investigator (CCBI - Switzerland) – 2020, Certified Enterprise Security Risk Manager (CESRM – UK) – 2023",
-		biography: "Born February 18th 1962, Barr. Hezekiah O. IMONIVWHERHA hails from Eku, in Delta State of Nigeria and holds an LL.B from the University of Benin, Benin City after a brief stint at the Federal Polytechnic Idah, Kogi State where he obtained a National Diploma in Marketing. He further went on to bag a BL at the Nigerian Law School after the completion of his first Law Degree (LL.B) at the University of Benin; and thereafter an MBA at the Delta State University Abraka followed by an Advanced Diploma SOM at the University of Lagos. Finally in 2012, he earned a LLM from the University of Lagos to cap his academic sojourn. \n\n Professionally, Barr Hezekiah is a man of so many parts and paths: he is a certified Management Consultant (CMC) - 2019, a Chartered Business Development Manager (CBDM) – 2023, Certified Physical Security Manager (CPSM) – 2021, Certified Intelligence Analyst (CINTA) – 2020, Certified Cyber Breach Investigator (CCBI - Switzerland) – 2020, Certified Enterprise Security Risk Manager (CESRM – UK) – 2023, acquired the Institute of Disaster Management & Safety Science’s Program Officer Certification in 2014 --- to mention only a few\n\nBarr Hezekiah is a Fellow of the Nigerian Bar Association, Chartered Institute of Arbitrator Nigeria, Institute of Mediators and Conciliators, the Association of Counterterrorism and Security Professionals USA",
-		image: "/team/Barr-Hezekiah-O.jpeg",
-
+		bio: "Distinguished mentor, visionary leader, and pioneering force in entrepreneurial endeavors. A Nigerian-born British business magnate renowned for enterprise development and wealth redistribution.",
+		biography: "Mr. Khalifah Onu stands as a distinguished mentor, visionary leader, and a pioneering force in entrepreneurial and philanthropic endeavors. His profound impact as a strategic nation-builder is evident through his transformative initiatives and his relentless drive to empower communities across Africa and beyond. \n\n A Nigerian-born British business magnate, Mr. Onu is renowned for his unparalleled expertise in enterprise development and wealth redistribution. His tenure as a former Presidential Aide in Nigeria laid the foundation for a career that has blossomed into one of global influence. Today, Mr. Khalifah Onu is regarded as a trailblazer whose leadership and strategic vision have shaped industries, changed lives, and uplifted communities. \n\nAs the Chairman of Royal CBS Group Limited, he has garnered respect for his innovation, ethical entrepreneurship, and strategic investments. His reputation is defined by a commitment to job creation and economic empowerment, earning him the moniker “The Wing of Freedom.” Far from being a wealth hoarder, Mr. Onu is celebrated as a distributor of wealth and creator of opportunities, qualities that distinguish his entrepreneurial journey.",
+		image: "/team/kalifa-onu.jpeg",
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
 			twitter: "https://twitter.com",
-			email: "aisha.mwangi@jfan.africa",
+			email: "khalifa.onu@jfan.africa",
 		},
-		skills: ["Strategic Partnerships", "Business Development", "Negotiation", "Relationship Management"],
-		experience: "11+ years in Strategic Partnerships",
-		education: "MBA Strategic Management, London Business School",
+
+		skills: ["Talent Development", "Training Design", "Performance Management", "Leadership Coaching"],
+		experience: "15+ years in African Economic Development ",
+		education: "",
 		achievements: [
-			"Secured partnerships with 200+ global companies",
-			"Generated $25M in partnership value",
-			"Expanded JFAN presence to 15 international markets",
+			"Developed training programs for 100K+ professionals",
+			"Published 3 books on African talent development",
+			"Consultant to World Bank on skills development",
 		],
+		pdfDocument: {
+			url: "/team/documents/sir-khalifa-onu-profile..pdf",
+		},
 	},
 	{
-		id: "3",
+		id: "2",
 		name: "Professor Hilary Inyang",
-		position: "Head of Regional Operations",
-		department: "Operations",
-		bio: "Operations expert specializing in multi-regional coordination across Africa. Fatou ensures seamless collaboration between our five continental regions and diaspora communities.",
+		position: "Honorary Chair, Continental Board of Trustees",
+		department: "Executive Leadership",
+		bio: "Renowned Geoenvironmental researcher, educator and explorer, reviewer of the 2017 IPCC report and Honorary Theme Editor of the United Nation Encyclopedia of Life Support Systems.",
 		biography: " Professor Hilary Inyang is a renowned Geoenvironmental researcher, educator and explorer, reviewer of the 2017 IPCC report and Honorary Theme Editor of the United Nation Encyclopedia of Life Support Systems (Environmental Monitoring Section). He is currently the Honorary President of the International Society of Environmental Geotechnology (ISEG) as well as the United Nations Educational, Scientific and Cultural Organization (UNESCO)-Paris Consultant on Water Security; Visiting Professor at the Indian Institute of Technology-Bombay (IIT-B); and Visiting International Research Fellow at the Africa Institute of South Africa (AISA). \n Prof Inyang was most recently, a United States Ambassador’s Distinguished Scholar to Ethiopia (Called back after the COVID/Ethiopian Civil War-induced break to resume September, 2022). He is a two-time Vice Chancellor (the African University of Science and Technology (AUST), Abuja; and the Botswana International University of Science and Technology (BIUST), Palapye, Botswana); former Duke Energy Distinguished Professor of Environmental Engineering and Science and Global Institute Director at the University of North Carolina-Charlotte, United States of America; former DuPont Professor and Center Director at the University of Massachusetts Lowell, United States of America; and former Chairman of the United States Environmental Protection Agency’s Science Advisory Board (Engineering). He is the author of 276 publications on various topics in environmental systems and climate change, including the 2022 United Nations Educational, Scientific and Cultural Organization (UNESCO) Guidebook on Scientific Writing. He is the winner of more than 25 professional awards. \nProf Inyang holds a PhD in Civil and Construction Engineering from Iowa State University, Nigeria. He obtained his MS in Civil and Environmental Engineering, and BSc in Civil and Environmental Engineering from North Dakota State University, United States. (1983, Oklahoma State University, United Statesa). He obtained his BSc Honours in Geology from University of Calabar, Nigeia.",
 		image: "/team/prof-hiilary.png",
 		socialLinks: {
@@ -421,35 +405,59 @@ export const teamMembers: TeamMember[] = [
 		],
 	},
 	{
-		id: "4",
-		name: "Sir Khalifah Onu",
-		position: "Head of Talent Development",
-		department: "Human Resources",
-		bio: "People development specialist focused on unlocking Africa's human potential. Dr. Asante designs programs that enhance skills and create pathways for career advancement.",
-		biography: "Mr. Khalifah Onu stands as a distinguished mentor, visionary leader, and a pioneering force in entrepreneurial and philanthropic endeavors. His profound impact as a strategic nation-builder is evident through his transformative initiatives and his relentless drive to empower communities across Africa and beyond. \n\n A Nigerian-born British business magnate, Mr. Onu is renowned for his unparalleled expertise in enterprise development and wealth redistribution. His tenure as a former Presidential Aide in Nigeria laid the foundation for a career that has blossomed into one of global influence. Today, Mr. Khalifah Onu is regarded as a trailblazer whose leadership and strategic vision have shaped industries, changed lives, and uplifted communities. \n\nAs the Chairman of Royal CBS Group Limited, he has garnered respect for his innovation, ethical entrepreneurship, and strategic investments. His reputation is defined by a commitment to job creation and economic empowerment, earning him the moniker “The Wing of Freedom.” Far from being a wealth hoarder, Mr. Onu is celebrated as a distributor of wealth and creator of opportunities, qualities that distinguish his entrepreneurial journey.",
-		image: "/team/kalifa-onu.jpeg",
+		id: "3",
+		name: "Barr Hezekiah O. IMONIVWERHA",
+		position: "Chief Consultant JFAN",
+		department: "Legal & Consulting",
+		bio: "Certified Management Consultant (CMC), Chartered Business Development Manager (CBDM), and certified security expert with extensive legal background.",
+		biography: "Born February 18th 1962, Barr. Hezekiah O. IMONIVWHERHA hails from Eku, in Delta State of Nigeria and holds an LL.B from the University of Benin, Benin City after a brief stint at the Federal Polytechnic Idah, Kogi State where he obtained a National Diploma in Marketing. He further went on to bag a BL at the Nigerian Law School after the completion of his first Law Degree (LL.B) at the University of Benin; and thereafter an MBA at the Delta State University Abraka followed by an Advanced Diploma SOM at the University of Lagos. Finally in 2012, he earned a LLM from the University of Lagos to cap his academic sojourn. \n\n Professionally, Barr Hezekiah is a man of so many parts and paths: he is a certified Management Consultant (CMC) - 2019, a Chartered Business Development Manager (CBDM) – 2023, Certified Physical Security Manager (CPSM) – 2021, Certified Intelligence Analyst (CINTA) – 2020, Certified Cyber Breach Investigator (CCBI - Switzerland) – 2020, Certified Enterprise Security Risk Manager (CESRM – UK) – 2023, acquired the Institute of Disaster Management & Safety Science’s Program Officer Certification in 2014 --- to mention only a few\n\nBarr Hezekiah is a Fellow of the Nigerian Bar Association, Chartered Institute of Arbitrator Nigeria, Institute of Mediators and Conciliators, the Association of Counterterrorism and Security Professionals USA",
+		image: "/team/Barr-Hezekiah-O.jpeg",
+
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
 			twitter: "https://twitter.com",
-			email: "kalifa.onu@jfan.africa",
+			email: "hezekiah@jfan.africa",
 		},
-
-		skills: ["Talent Development", "Training Design", "Performance Management", "Leadership Coaching"],
-		experience: "14+ years in Human Resource Development",
-		education: "PhD in Organizational Psychology, University of Ghana",
+		skills: ["Strategic Partnerships", "Business Development", "Negotiation", "Relationship Management"],
+		experience: "11+ years in Strategic Partnerships",
+		education: "LLM University of Lagos",
 		achievements: [
-			"Developed training programs for 100K+ professionals",
-			"Published 3 books on African talent development",
-			"Consultant to World Bank on skills development",
+			"Secured partnerships with 200+ global companies",
+			"Generated $25M in partnership value",
+			"Expanded JFAN presence to 15 international markets",
 		],
 	},
+
+	{
+		id: "4",
+		name: "Amb IDAH Onyilokwu Kingsley David",
+		position: "Founder/CEO IQ-IHRAP; JFAN",
+		department: "Executive Leadership",
+		bio: "Visionary leader with over 15 years of experience in African economic development and talent mobilization. Ambassador David has spearheaded numerous initiatives connecting African professionals globally.",
+		biography: "Ambassador IDAH Onyilokwu Kingsley David is a distinguished leader, entrepreneur, and advocate for African economic development. With over 15 years of dedicated experience in talent mobilization and economic empowerment across Africa, he has established himself as a visionary in connecting African professionals with global opportunities.\n\nAs the Founder and CEO of IQ-IHRAP (Intelligence Quotient - Integrated Human Resource and Project Management) and JFAN (Jobs For Africa Now), Ambassador David has pioneered innovative approaches to addressing unemployment and underemployment across the African continent. His work focuses on creating sustainable pathways for African talent to access international markets while building robust local economies.\n\nHis leadership philosophy centers on the belief that Africa's greatest resource is its people, and through strategic talent development and international partnerships, the continent can achieve unprecedented economic growth. Under his guidance, JFAN has grown into a comprehensive platform serving millions of African professionals worldwide.\n\nAmbassador David holds advanced degrees in Development Economics and has been recognized internationally for his contributions to African economic development. He regularly speaks at international forums on topics ranging from digital transformation in Africa to sustainable development goals, and has been featured in numerous publications for his innovative approaches to talent mobilization.",
+		image: "/team/amb-kingsley-david-ceo.jpeg",
+		socialLinks: {
+			linkedin: "https://linkedin.com/in/dr-amina-hassan",
+			twitter: "https://twitter.com/aminahassan",
+			email: "amina.hassan@jfan.africa",
+		},
+		skills: ["Strategic Leadership", "Economic Development", "Public Speaking", "Policy Development"],
+		experience: "15+ years in African Economic Development",
+		education: "",
+		achievements: [
+			"Featured in Forbes Africa 40 Under 40",
+			"Led $50M funding round for African talent initiatives",
+			"Keynote speaker at African Union Economic Summit",
+		],
+	},
+
 	{
 		id: "5",
 		name: "Micheal Dalu",
 		position: "Chief Technology Officer",
 		department: "Technology",
-		bio: "Tech innovator passionate about building scalable platforms that connect Africa's digital talent with global opportunities. Samuel leads our technical vision and product development.",
-		biography: "Micheal is a distinguished technology leader with over 12 years of experience in software engineering and digital platform development. As Chief Technology Officer at JFAN, he spearheads the technical vision and product development initiatives that power Africa's largest talent mobilization platform.\n\nHis expertise spans full-stack development, system architecture, artificial intelligence, and cloud computing. Micheal has been instrumental in building scalable platforms that have successfully connected over 2 million African professionals with global opportunities. His innovative approach to talent matching algorithms has revolutionized how African professionals are discovered and connected with international employers.\n\nBefore joining JFAN, Micheal held senior technical roles at various multinational technology companies, where he gained extensive experience in building enterprise-grade systems that serve millions of users globally. His passion for leveraging technology to solve Africa's unique challenges has driven him to develop cutting-edge solutions that bridge the gap between African talent and global opportunities.\n\nSamuel holds a Master's degree in Computer Science from the University of Cape Town and is a recognized thought leader in African technology circles. He regularly speaks at international technology conferences and has published several research papers on machine learning applications in talent acquisition and workforce development.",
+		bio: "Tech innovator passionate about building scalable platforms that connect Africa's digital talent with global opportunities. Micheal leads our technical vision and product development.",
+		biography: "Micheal is a distinguished technology leader with over 12 years of experience in software engineering and digital platform development. As Chief Technology Officer at JFAN, he spearheads the technical vision and product development initiatives that power Africa's largest talent mobilization platform.\n\nHis expertise spans full-stack development, system architecture, artificial intelligence, and cloud computing. Micheal has been instrumental in building scalable platforms that have successfully connected over 2 million African professionals with global opportunities. His innovative approach to talent matching algorithms has revolutionized how African professionals are discovered and connected with international employers.\n\nBefore joining JFAN, Micheal held senior technical roles at various multinational technology companies, where he gained extensive experience in building enterprise-grade systems that serve millions of users globally. His passion for leveraging technology to solve Africa's unique challenges has driven him to develop cutting-edge solutions that bridge the gap between African talent and global opportunities.\n\nMicheal holds degrees in Zoology and Software Engineering and is a recognized thought leader in African technology circles. He regularly speaks at international technology conferences and has published several research papers on machine learning applications in talent acquisition and workforce development.",
 		image: "/team/mike.jpg",
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
@@ -458,7 +466,7 @@ export const teamMembers: TeamMember[] = [
 			email: "micheal.dalu@jfan.africa",
 		},
 		skills: ["Full-Stack Development", "System Architecture", "AI/ML", "Cloud Computing"],
-		experience: "5+ years in Software Engineering",
+		experience: "12+ years in Software Engineering",
 		education: "BSc Zoology, Bsc. Software Engineering",
 		achievements: [
 			"Built platforms serving 2M+ African professionals",
@@ -472,21 +480,21 @@ export const teamMembers: TeamMember[] = [
 		name: "Abdulmalik Yakubu",
 		position: "Head of Media & Marketing",
 		department: "Marketing & Media",
-		bio: "Marketing specialist ",
-		biography: "",
+		bio: "Marketing specialist with expertise in digital marketing, lead conversion, and statistical analysis. Abdulmalik drives JFAN's marketing strategy and brand development.",
+		biography: "Abdulmalik Yakubu is a dynamic marketing professional with over 4 years of experience in digital marketing and media strategy. As Head of Media & Marketing at JFAN, he oversees all marketing communications, brand development, and digital outreach initiatives that have helped establish JFAN as Africa's premier professional networking platform.\n\nHis expertise encompasses digital marketing strategy, lead conversion optimization, statistical analysis, and public speaking. Abdulmalik has been instrumental in developing marketing campaigns that have reached millions of African professionals across the continent and diaspora.\n\nWith a Master's degree in Business Management, Abdulmalik combines academic knowledge with practical experience to drive measurable results in JFAN's marketing efforts. His innovative approach to marketing has contributed significantly to the platform's growth and user engagement.\n\nAbdulmalik is passionate about using marketing as a tool for social impact, particularly in connecting African talent with opportunities and promoting the continent's professional capabilities on the global stage.",
 		image: "/team/malik.png",
 		socialLinks: {
-			linkedin: "https://linkedin.com/in/omar-el-rashid",
-			github: "https://github.com/omarelrashid",
-			email: "omar.elrashid@jfan.africa",
+			linkedin: "https://linkedin.com/in/abdulmalik-yakubu",
+			twitter: "https://twitter.com/malik_yakubu",
+			email: "abdulmalik.yakubu@jfan.africa",
 		},
-		skills: ["Public Speaking", "Lead Conversion", "Statistical Analysis", "Marketing"],
+		skills: ["Digital Marketing", "Lead Conversion", "Statistical Analysis", "Public Speaking"],
 		experience: "4+ years in Digital Marketing",
 		education: "Msc Business Management",
 		achievements: [
-			"Built ML models with 95% accuracy in talent matching",
-			"Published research on African labor market trends",
-			"Saved $2M annually through predictive analytics",
+			"Led marketing campaigns reaching 2M+ professionals",
+			"Increased platform engagement by 150%",
+			"Developed award-winning brand strategy for JFAN",
 		],
 	},
 ];

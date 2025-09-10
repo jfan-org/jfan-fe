@@ -33,19 +33,19 @@ const Header: React.FC = () => {
 			animate={{ y: 0 }}
 			className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex justify-between items-center h-16">
+				<div className="flex justify-between items-center h-14 sm:h-16">
 					<Link href="/">
-						<motion.div className="flex items-center space-x-3 cursor-pointer" whileHover={{ scale: 1.05 }}>
-							<Image src="/images/logo.svg" alt="JFAN Logo" width={150} height={10} />
+						<motion.div className="flex items-center space-x-2 sm:space-x-3 cursor-pointer" whileHover={{ scale: 1.05 }}>
+							<Image src="/images/logo.svg" alt="JFAN Logo" width={140} height={9} className="sm:w-[150px] sm:h-[10px]" />
 						</motion.div>
 					</Link>
 
 					{/* Desktop Menu */}
-					<div className="hidden md:flex items-center space-x-8">
+					<div className="hidden md:flex items-center space-x-6 lg:space-x-8">
 						{navItems.map((item: NavItem) => (
 							<Link key={item.name} href={item.href}>
 								<motion.span
-									className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors cursor-pointer"
+									className="px-2 lg:px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800 transition-colors cursor-pointer"
 									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.95 }}>
 									{item.name}
@@ -87,8 +87,8 @@ const Header: React.FC = () => {
 
 					{/* Mobile menu button */}
 					<div className="md:hidden">
-						<button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white p-2">
-							{isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+						<button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white p-1.5 sm:p-2 rounded-md hover:bg-gray-800 transition-colors">
+							{isMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
 						</button>
 					</div>
 				</div>
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
 							{navItems.map((item: NavItem) => (
 								<Link key={item.name} href={item.href}>
 									<span
-										className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 cursor-pointer"
+										className="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 cursor-pointer transition-colors"
 										onClick={() => setIsMenuOpen(false)}>
 										{item.name}
 									</span>

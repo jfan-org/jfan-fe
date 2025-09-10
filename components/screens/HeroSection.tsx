@@ -78,14 +78,14 @@ const HeroSection = () => {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.2 }}
-					className="max-w-4xl mx-auto">
-					<h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+					className="max-w-4xl mx-auto px-4">
+					<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
 						<span className="bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
 							WELCOME
 						</span>{" "}
 						TO JFAN
 					</h1>
-					<p className="text-xl md:text-2xl text-gray-300 mb-8">
+					<p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
 						Connecting African talent with global opportunities through our comprehensive professional network
 					</p>
 				</motion.div>
@@ -94,14 +94,14 @@ const HeroSection = () => {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.4 }}
-					className="flex flex-col sm:flex-row gap-4 mb-16">
+					className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-12 md:mb-16 w-full max-w-md sm:max-w-none px-4">
 					<Button
 						href="/register"
 						size="lg"
-						className="bg-gradient-to-r from-green-500 to-yellow-500 text-gray-900 hover:opacity-90">
+						className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-yellow-500 text-gray-900 hover:opacity-90">
 						Join Now
 					</Button>
-					<Button href="/about" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+					<Button href="/about" variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white/10">
 						Learn More
 					</Button>
 				</motion.div>
@@ -132,10 +132,10 @@ const HeroSection = () => {
 							].map((item, index) => (
 								<div
 									key={index}
-									className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
-									<div className="mb-4">{item.icon}</div>
-									<h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-									<p className="text-gray-300">{item.description}</p>
+									className="bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-gray-700 min-w-[240px] sm:min-w-[280px]">
+									<div className="mb-3 sm:mb-4">{item.icon}</div>
+									<h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">{item.title}</h3>
+									<p className="text-gray-300 text-sm sm:text-base">{item.description}</p>
 								</div>
 							))}
 
@@ -159,10 +159,10 @@ const HeroSection = () => {
 							].map((item, index) => (
 								<div
 									key={index}
-									className="bg-gray-900/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700">
-									<div className="mb-4">{item.icon}</div>
-									<h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-									<p className="text-gray-300">{item.description}</p>
+									className="bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-gray-700 min-w-[240px] sm:min-w-[280px]">
+									<div className="mb-3 sm:mb-4">{item.icon}</div>
+									<h3 className="text-lg sm:text-xl font-bold text-white mb-1 sm:mb-2">{item.title}</h3>
+									<p className="text-gray-300 text-sm sm:text-base">{item.description}</p>
 								</div>
 							))}
 						</motion.div>

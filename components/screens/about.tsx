@@ -64,38 +64,38 @@ const AboutPage: NextPage = () => {
 
 	return (
 		<LayoutWrapper>
-			<div className="pt-20">
+			<div className="pt-16 sm:pt-20">
 				{/* Hero Section */}
-				<AnimatedSection className="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+				<AnimatedSection className="py-12 md:py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
 					<div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
 						<motion.div
 							initial={{ opacity: 0, y: 30 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8 }}
-							className="mb-8">
-							<div className="text-6xl mb-6">🌍</div>
-							<h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+							className="mb-6 md:mb-8">
+							<div className="text-4xl sm:text-5xl md:text-6xl mb-4 md:mb-6">🌍</div>
+							<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent px-4">
 								About JFAN
 							</h1>
-							<p className="text-xl md:text-2xl text-yellow-400 mb-6">Jobs For Africa Now</p>
-							<p className="text-lg text-gray-300 mb-8 max-w-4xl mx-auto">
+							<p className="text-lg sm:text-xl md:text-2xl text-yellow-400 mb-4 md:mb-6">Jobs For Africa Now</p>
+							<p className="text-base sm:text-lg text-gray-300 mb-6 md:mb-8 max-w-4xl mx-auto leading-relaxed px-4">
 								Transforming Africa's professional landscape through innovative technology, strategic
 								partnerships, and unwavering commitment to excellence. We are the continent's premier
 								platform connecting talent with opportunity.
 							</p>
 						</motion.div>
 
-						<div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-							<Button size="lg" href="/register" icon={<ArrowRight className="w-5 h-5" />}>
+						<div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-12 px-4">
+							<Button size="lg" href="/register" icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />} className="w-full sm:w-auto">
 								Join Our Mission
 							</Button>
-							<Button variant="secondary" size="lg" href="/contact">
+							<Button variant="secondary" size="lg" href="/contact" className="w-full sm:w-auto">
 								Partner With Us
 							</Button>
 						</div>
 
 						{/* Key Statistics */}
-						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+						<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
 							{aboutStatistics.map((stat: Statistic, index: number) => (
 								<motion.div
 									key={index}
@@ -103,10 +103,10 @@ const AboutPage: NextPage = () => {
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
 									className="text-center">
-									<div className="text-yellow-400 mb-2 flex justify-center">{stat.icon}</div>
-									<div className="text-2xl font-bold text-green-400 mb-1">{stat.value}</div>
-									<div className="text-sm font-medium text-white mb-1">{stat.label}</div>
-									<div className="text-xs text-gray-400">{stat.description}</div>
+									<div className="text-yellow-400 mb-1.5 md:mb-2 flex justify-center">{stat.icon}</div>
+									<div className="text-xl sm:text-2xl font-bold text-green-400 mb-1">{stat.value}</div>
+									<div className="text-xs sm:text-sm font-medium text-white mb-1">{stat.label}</div>
+									<div className="text-xs text-gray-400 leading-tight">{stat.description}</div>
 								</motion.div>
 							))}
 						</div>

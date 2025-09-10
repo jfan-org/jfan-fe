@@ -171,31 +171,31 @@ export function DynamicRegistrationForm({ userType, onBack, onSuccess }: Dynamic
 			transition={{ duration: 0.3 }}
 			className="max-w-4xl mx-auto">
 			<Card className="bg-gray-800 border-gray-700">
-				<CardHeader>
-					<div className="flex items-center space-x-4">
-						<Button variant="ghost" size="sm" onClick={onBack} className="text-gray-400 hover:text-white">
+				<CardHeader className="p-4 sm:p-6">
+					<div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+						<Button variant="ghost" size="sm" onClick={onBack} className="text-gray-400 hover:text-white self-start sm:self-auto">
 							<ArrowLeft className="w-4 h-4 mr-2" />
 							Back
 						</Button>
 						<div className="flex-1">
-							<CardTitle className={`text-xl ${userTypeConfig.color}`}>
+							<CardTitle className={`text-lg sm:text-xl ${userTypeConfig.color}`}>
 								Register as {userTypeConfig.name}
 							</CardTitle>
-							<p className="text-gray-400 text-sm mt-1">{userTypeConfig.description}</p>
+							<p className="text-gray-400 text-xs sm:text-sm mt-1 leading-relaxed">{userTypeConfig.description}</p>
 						</div>
 					</div>
 				</CardHeader>
 
-				<CardContent>
+				<CardContent className="p-4 sm:p-6">
 					{submitError && (
-						<Alert className="mb-6 border-red-500 bg-red-500/10">
+						<Alert className="mb-4 sm:mb-6 border-red-500 bg-red-500/10">
 							<AlertCircle className="h-4 w-4 text-red-500" />
-							<AlertDescription className="text-red-400">{submitError}</AlertDescription>
+							<AlertDescription className="text-red-400 text-sm">{submitError}</AlertDescription>
 						</Alert>
 					)}
 
 					<Form {...form}>
-						<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+						<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
 							{/* Base Registration Fields */}
 							<BaseRegistrationFields form={form} />
 
@@ -203,14 +203,14 @@ export function DynamicRegistrationForm({ userType, onBack, onSuccess }: Dynamic
 							{renderUserTypeSpecificFields()}
 
 							{/* Submit Button */}
-							<div className="flex justify-end space-x-4 pt-6 border-t border-gray-700">
-								<Button type="button" variant="outline" onClick={onBack} disabled={isSubmitting}>
+							<div className="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-4 sm:pt-6 border-t border-gray-700">
+								<Button type="button" variant="outline" onClick={onBack} disabled={isSubmitting} className="w-full sm:w-auto">
 									Cancel
 								</Button>
 								<Button
 									type="submit"
 									disabled={isSubmitting}
-									className={`${userTypeConfig.bgColor} ${userTypeConfig.color} border-0 hover:opacity-80`}>
+									className={`w-full sm:w-auto ${userTypeConfig.bgColor} ${userTypeConfig.color} border-0 hover:opacity-80`}>
 									{isSubmitting ? (
 										<>
 											<Loader2 className="w-4 h-4 mr-2 animate-spin" />

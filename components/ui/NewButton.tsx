@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
 	disabled = false,
 	...props
 }) => {
-	const baseClasses = "font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2";
+	const baseClasses = "font-bold rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 touch-manipulation";
 
 	const variants: Record<ButtonVariant, string> = {
 		primary: "bg-gradient-to-r from-green-500 to-yellow-500 text-gray-900 hover:shadow-lg",
@@ -40,9 +40,9 @@ const Button: React.FC<ButtonProps> = ({
 	};
 
 	const sizes: Record<ButtonSize, string> = {
-		sm: "px-4 py-2 text-sm",
-		md: "px-6 py-3 text-base",
-		lg: "px-8 py-4 text-lg",
+		sm: "px-3 py-2 sm:px-4 sm:py-2 text-sm",
+		md: "px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base",
+		lg: "px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg",
 	};
 
 	const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`;

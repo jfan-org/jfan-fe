@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, ExternalLink, Linkedin, Twitter, Github, Mail, X, MapPin, Award, GraduationCap, Briefcase, Users } from "lucide-react";
+import { Eye, ExternalLink, Linkedin, Twitter, Github, Mail, X, MapPin, Award, GraduationCap, Briefcase, Users, FileText } from "lucide-react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -93,6 +93,7 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 								</Badge>
 							)}
 						</div>
+
 
 						{/* View Details Button */}
 						<Button
@@ -205,6 +206,20 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 											)}
 										</div>
 									</div>
+
+									{/* PDF Document Button */}
+									{member.pdfDocument && (
+										<div className="mt-4">
+											<Button
+												onClick={() => window.open(member.pdfDocument!.url, '_blank')}
+												variant="outline"
+												size="sm"
+												className="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white">
+												<FileText className="w-4 h-4 mr-2" />
+												View Document
+											</Button>
+										</div>
+									)}
 								</div>
 							</div>
 
@@ -271,6 +286,7 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 										))}
 									</ul>
 								</div>
+
 							</div>
 						</motion.div>
 					</motion.div>
