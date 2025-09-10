@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 				<div className="flex justify-between items-center h-14 sm:h-16">
 					<Link href="/">
 						<motion.div className="flex items-center space-x-2 sm:space-x-3 cursor-pointer" whileHover={{ scale: 1.05 }}>
-							<Image src="/images/logo.svg" alt="JFAN Logo" width={140} height={9} className="sm:w-[150px] sm:h-[10px]" />
+							<Image src="/images/logo.svg" alt="JFAN Logo" width={120} height={8} className="md:w-[160px] md:h-[11px] lg:w-[180px] lg:h-[12px]" />
 						</motion.div>
 					</Link>
 
