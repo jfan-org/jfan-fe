@@ -35,8 +35,14 @@ const Header: React.FC = () => {
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-14 sm:h-16">
 					<Link href="/">
-						<motion.div className="flex items-center space-x-2 sm:space-x-3 cursor-pointer" whileHover={{ scale: 1.05 }}>
-							<Image src="/images/logo.svg" alt="JFAN Logo" width={120} height={8} className="md:w-[160px] md:h-[11px] lg:w-[180px] lg:h-[12px]" />
+						<motion.div className="flex items-center  cursor-pointer" whileHover={{ scale: 1.05 }}>
+							<Image
+								src="/images/logo.svg"
+								alt="JFAN Logo"
+								width={200}
+								height={100}
+								className="w-[60px]  md:w-[100px]  lg:w-[140px] "
+							/>
 						</motion.div>
 					</Link>
 
@@ -87,8 +93,14 @@ const Header: React.FC = () => {
 
 					{/* Mobile menu button */}
 					<div className="md:hidden">
-						<button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white p-1.5 sm:p-2 rounded-md hover:bg-gray-800 transition-colors">
-							{isMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+						<button
+							onClick={() => setIsMenuOpen(!isMenuOpen)}
+							className="text-gray-300 hover:text-white p-1.5 sm:p-2 rounded-md hover:bg-gray-800 transition-colors">
+							{isMenuOpen ? (
+								<X className="w-5 h-5 sm:w-6 sm:h-6" />
+							) : (
+								<Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+							)}
 						</button>
 					</div>
 				</div>
