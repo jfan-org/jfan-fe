@@ -407,7 +407,7 @@ export const teamMembers: TeamMember[] = [
 	{
 		id: "33",
 		name: "Dr Henry EMEJUO",
-		position: "Honorary Chair, Continental Board of Trustees",
+		position: "Lead Partner (Director General, PAOSMI)",
 		department: "Executive Leadership",
 		bio: "Renowned Geoenvironmental researcher, educator and explorer, reviewer of the 2017 IPCC report and Honorary Theme Editor of the United Nation Encyclopedia of Life Support Systems.",
 		biography: "Dr. Henry E EMEJUO is a Clinician-Scientist and multiple award-winning Entrepreneur with more than eighteen years of experience in public health research and programs focused on economic empowerment, entrepreneurship, and business development. A Certified Trainer, Industrial association administrator, keynote speaker, and program facilitator.\n Dr. Emejuo is passionate about building a sustainable Small and Medium Enterprises (SMEs) ecosystem that guarantees quality goods and services through business innovation, and models that enhance the productivity and well-being of all Nigerians. He regularly consults for startup companies and SMEs needing innovative solutions, marketing direction, or board leadership with the aim of developing businesses in size, wealth, or importance. ",
