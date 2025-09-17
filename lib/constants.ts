@@ -405,6 +405,29 @@ export const teamMembers: TeamMember[] = [
 		],
 	},
 	{
+		id: "33",
+		name: "Dr Henry EMEJUO",
+		position: "Honorary Chair, Continental Board of Trustees",
+		department: "Executive Leadership",
+		bio: "Renowned Geoenvironmental researcher, educator and explorer, reviewer of the 2017 IPCC report and Honorary Theme Editor of the United Nation Encyclopedia of Life Support Systems.",
+		biography: "Dr. Henry E EMEJUO is a Clinician-Scientist and multiple award-winning Entrepreneur with more than eighteen years of experience in public health research and programs focused on economic empowerment, entrepreneurship, and business development. A Certified Trainer, Industrial association administrator, keynote speaker, and program facilitator.\n Dr. Emejuo is passionate about building a sustainable Small and Medium Enterprises (SMEs) ecosystem that guarantees quality goods and services through business innovation, and models that enhance the productivity and well-being of all Nigerians. He regularly consults for startup companies and SMEs needing innovative solutions, marketing direction, or board leadership with the aim of developing businesses in size, wealth, or importance. ",
+		image: "/team/dr-hilary.jpeg",
+
+		socialLinks: {
+			linkedin: "https://www.linkedin.com/in/henryemejuo/",
+			twitter: "https://twitter.com/#",
+			email: "hery.emejuo@jfan.africa",
+		},
+		skills: ["Operations Management", "Project Management", "Team Leadership"],
+		experience: "Chairman- Innovative Impact Partners (IIP)- A leading Social- Economic development organization",
+
+		achievements: [
+			"National Coordinator- NASSI-Enterprise Development Institute EDI. An industrial enterprise training school. ",
+			"Reduced operational costs by 40% through process optimization",
+			"National Director-The National Industrial Business Summit (NIBS), A multi-stakeholder Industrial advocacy Platform for Micro, Small, and Medium Industries (MSMIs).",
+		],
+	},
+	{
 		id: "3",
 		name: "Barr Hezekiah O. IMONIVWERHA",
 		position: "Chief Consultant JFAN",

@@ -94,7 +94,6 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 							)}
 						</div>
 
-
 						{/* View Details Button */}
 						<Button
 							onClick={handleViewDetails}
@@ -211,7 +210,9 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 									{member.pdfDocument && (
 										<div className="mt-4">
 											<Button
-												onClick={() => window.open(member.pdfDocument!.url, '_blank')}
+												onClick={() =>
+													window.open(member.pdfDocument!.url, "_blank")
+												}
 												variant="outline"
 												size="sm"
 												className="border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white">
@@ -246,10 +247,12 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 										<p className="text-gray-300">{member.experience}</p>
 									</div>
 									<div>
-										<h4 className="text-lg font-semibold text-white mb-3 flex items-center">
-											<GraduationCap className="w-5 h-5 mr-2 text-green-400" />
-											Education
-										</h4>
+										{member.education && (
+											<h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+												<GraduationCap className="w-5 h-5 mr-2 text-green-400" />
+												Education
+											</h4>
+										)}
 										<p className="text-gray-300">{member.education}</p>
 									</div>
 								</div>
@@ -286,7 +289,6 @@ export default function TeamMemberCard({ member, index }: TeamMemberCardProps) {
 										))}
 									</ul>
 								</div>
-
 							</div>
 						</motion.div>
 					</motion.div>
