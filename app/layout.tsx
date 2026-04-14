@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Poppins } from "next/font/google";
 
-const poppins = Poppins({
+const plusJakartaSans = Plus_Jakarta_Sans({
+	variable: "--font-plus-jakarta-sans",
 	subsets: ["latin"],
-	weight: ["400", "700"], // adjust based on available weights
-});
-
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +20,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+			<body className={`${plusJakartaSans.variable} font-sans antialiased`}>{children}</body>
 		</html>
 	);
 }
