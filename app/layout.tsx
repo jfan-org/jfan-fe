@@ -21,8 +21,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://jfan.africa"),
 	openGraph: {
 		title: "JFAN — Jobs for Africa Now",
-		description:
-			"Connecting African talent with global opportunities through our comprehensive professional network.",
+		description: "Connecting African talent with global opportunities through our comprehensive professional network.",
 		url: "https://jfan.africa",
 		siteName: "JFAN",
 		locale: "en_US",
@@ -31,8 +30,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title: "JFAN — Jobs for Africa Now",
-		description:
-			"Connecting African talent with global opportunities through our comprehensive professional network.",
+		description: "Connecting African talent with global opportunities through our comprehensive professional network.",
 	},
 	icons: {
 		icon: [
