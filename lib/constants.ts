@@ -357,6 +357,36 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
 	{
+		id: "01",
+		name: "Professor PLO Lumumba",
+		position: "Continental Chairman — JFAN (Jobs For Africa Now)",
+		department: "Executive Leadership",
+		bio: "'Distinguished mentor, visionary leader, and pioneering force in entrepreneurial endeavors. A Nigerian-born British business magnate renowned for enterprise development and wealth redistribution.",
+		biography: "Professor Patrick Loch Otieno Lumumba is one of Africa’s most distinguished legal minds, governance reform advocates, and leading intellectual voices on leadership, ethics, and institutional transformation. A Professor of Public Law and an Advocate of the High Courts of Kenya and Tanganyika, he holds a Doctor of Laws (LL.D) in the Law of the Sea from the Ghent University, alongside Master of Laws and Bachelor of Laws degrees from the University of Nairobi.\nHis academic formation includes advanced studies in Human Rights at the Institute of Advanced Legal Studies, Humanitarian Law at the Raoul Wallenberg Institute, and international humanitarian law training in Geneva.\nProfessor Lumumba’s career spans academia, public service, institutional reform, and international advocacy. He has served as Director and Chief Executive Officer of the Kenya School of Law, Secretary of the Constitution of Kenya Review Commission, and Director of the Kenya Anti-Corruption Commission, demonstrating a strong commitment to ethical governance, transparency, and accountability.\nIn academia, he has held senior roles including Founding Dean of the Kabarak University School of Law and lecturer at multiple institutions. He currently serves as Professor of Leadership and Ethics at the African School of Governance.\nA prolific author and globally sought-after keynote speaker, Professor Lumumba has contributed extensively to scholarship on constitutionalism, governance reform, and African development. His work consistently advocates for principled leadership, institutional integrity, and Pan-African renewal.",
+		image: "/team/plo-lumumba.webp",
+		socialLinks: {
+			linkedin: "https://linkedin.com/in/",
+			twitter: "https://twitter.com",
+			email: "lumumba@jfan.tech",
+		},
+
+		skills: [
+			"Governance & Institutional Reform",
+			"Leadership & Ethics",
+			"Constitutional Law",
+			"Anti-Corruption Strategy",
+			"Public Policy & Advocacy",
+		],
+		experience: "15+ years in Governance, Legal Practice, and Institutional Reform",
+		education: "",
+		achievements: [
+			"Former Director & CEO, Kenya School of Law",
+			"Led anti-corruption reforms at the Kenya Anti-Corruption Commission",
+			"Recognized among Africa’s most influential intellectual voices",
+			"Delivered keynote lectures across Africa and globally",
+		],
+	},
+	{
 		id: "1",
 		name: "Sir Khalifah Onu",
 		position: "National Chairman and Nigerian Country Project Team Lead, JFAN",
@@ -367,7 +397,7 @@ export const teamMembers: TeamMember[] = [
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
 			twitter: "https://twitter.com",
-			email: "khalifa.onu@jfan.africa",
+			email: "khalifa.onu@jfan.tech",
 		},
 
 		skills: ["Talent Development", "Training Design", "Performance Management", "Leadership Coaching"],
@@ -393,7 +423,7 @@ export const teamMembers: TeamMember[] = [
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/#",
 			twitter: "https://twitter.com/#",
-			email: "hillary.iyang@jfan.africa",
+			email: "hillary.iyang@jfan.tech",
 		},
 		skills: ["Operations Management", "Cross-Cultural Communication", "Project Management", "Team Leadership"],
 		experience: "10+ years in Continental Operations",
@@ -416,7 +446,7 @@ export const teamMembers: TeamMember[] = [
 		socialLinks: {
 			linkedin: "https://www.linkedin.com/in/henryemejuo/",
 			twitter: "https://twitter.com/#",
-			email: "hery.emejuo@jfan.africa",
+			email: "hery.emejuo@jfan.tech",
 		},
 		skills: ["Operations Management", "Project Management", "Team Leadership"],
 		experience: "Chairman- Innovative Impact Partners (IIP)- A leading Social- Economic development organization",
@@ -439,7 +469,7 @@ export const teamMembers: TeamMember[] = [
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
 			twitter: "https://twitter.com",
-			email: "hezekiah@jfan.africa",
+			email: "hezekiah@jfan.tech",
 		},
 		skills: ["Strategic Partnerships", "Business Development", "Negotiation", "Relationship Management"],
 		experience: "11+ years in Strategic Partnerships",
@@ -462,7 +492,7 @@ export const teamMembers: TeamMember[] = [
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/dr-amina-hassan",
 			twitter: "https://twitter.com/aminahassan",
-			email: "amina.hassan@jfan.africa",
+			email: "amina.hassan@jfan.tech",
 		},
 		skills: ["Strategic Leadership", "Economic Development", "Public Speaking", "Policy Development"],
 		experience: "15+ years in African Economic Development",
@@ -486,7 +516,7 @@ export const teamMembers: TeamMember[] = [
 			linkedin: "https://linkedin.com/in/",
 			github: "https://github.com/mikedalu",
 			twitter: "https://twitter.com/",
-			email: "micheal.dalu@jfan.africa",
+			email: "micheal.dalu@jfan.tech",
 		},
 		skills: ["Full-Stack Development", "System Architecture", "AI/ML", "Cloud Computing"],
 		experience: "12+ years in Software Engineering",
@@ -509,7 +539,7 @@ export const teamMembers: TeamMember[] = [
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/abdulmalik-yakubu",
 			twitter: "https://twitter.com/malik_yakubu",
-			email: "abdulmalik.yakubu@jfan.africa",
+			email: "abdulmalik.yakubu@jfan.tech",
 		},
 		skills: ["Digital Marketing", "Lead Conversion", "Statistical Analysis", "Public Speaking"],
 		experience: "4+ years in Digital Marketing",

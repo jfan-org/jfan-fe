@@ -123,7 +123,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "North Africa",
 		bio: "Leading operations across North Africa with over 15 years of experience in international development and technology innovation.",
-		email: "amina.hassan@jfan.africa",
+		email: "amina.hassan@jfan.tech",
 	},
 	{
 		id: "dir-west",
@@ -131,7 +131,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "West Africa",
 		bio: "Driving fintech innovation and creative industries development across West Africa's 16 countries.",
-		email: "kwame.asante@jfan.africa",
+		email: "kwame.asante@jfan.tech",
 	},
 	{
 		id: "dir-east",
@@ -139,7 +139,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "East Africa",
 		bio: "Fostering entrepreneurship and agricultural innovation in East Africa's growing tech ecosystem.",
-		email: "grace.wanjiku@jfan.africa",
+		email: "grace.wanjiku@jfan.tech",
 	},
 	{
 		id: "dir-central",
@@ -147,7 +147,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "Central Africa",
 		bio: "Promoting sustainable development and resource management across Central Africa's diverse economies.",
-		email: "jean.moukoko@jfan.africa",
+		email: "jean.moukoko@jfan.tech",
 	},
 	{
 		id: "dir-south",
@@ -155,7 +155,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "Southern Africa",
 		bio: "Leading financial services and industrial development initiatives across Southern Africa's established markets.",
-		email: "nomsa.ndlovu@jfan.africa",
+		email: "nomsa.ndlovu@jfan.tech",
 	},
 	{
 		id: "dir-diaspora",
@@ -163,7 +163,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Global Diaspora Director",
 		region: "Diaspora Network",
 		bio: "Connecting African professionals worldwide and facilitating knowledge transfer and investment opportunities.",
-		email: "chidi.okonkwo@jfan.africa",
+		email: "chidi.okonkwo@jfan.tech",
 	},
 ];
 

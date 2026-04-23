@@ -276,7 +276,7 @@ export default function ContactPage() {
 										</div>
 										<div>
 											<h4 className="font-semibold text-white">Email Us</h4>
-											<p className="text-gray-300">contact@jfan.africa</p>
+											<p className="text-gray-300">contact@jfan.tech</p>
 											<p className="text-sm text-gray-400 mt-1">
 												We typically respond within 24 hours
 											</p>
@@ -301,9 +301,7 @@ export default function ContactPage() {
 											<Clock className="w-5 h-5 text-gray-900" />
 										</div>
 										<div>
-											<h4 className="font-semibold text-white">
-												Business Hours
-											</h4>
+											<h4 className="font-semibold text-white">Business Hours</h4>
 											<p className="text-gray-300">
 												Monday - Friday: 9:00 AM - 6:00 PM (EAT)
 											</p>

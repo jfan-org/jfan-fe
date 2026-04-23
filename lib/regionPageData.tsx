@@ -53,7 +53,7 @@ export const regionsData: RegionalData[] = [
 			city: "Cairo",
 			address: "Nile City Towers, North Tower, Floor 35, 2005A Corniche El Nil, Cairo, Egypt",
 			phone: "+20 2 2461 9000",
-			email: "north-africa@jfan.africa",
+			email: "north-africa@jfan.tech",
 		},
 		director: {
 			id: "dir-north",
@@ -68,7 +68,7 @@ export const regionsData: RegionalData[] = [
 				"Built partnerships with 200+ regional organizations",
 				"Fluent in Arabic, English, French, and Spanish",
 			],
-			email: "amina.hassan@jfan.africa",
+			email: "amina.hassan@jfan.tech",
 		},
 		programs: [
 			{
@@ -186,7 +186,7 @@ export const regionsData: RegionalData[] = [
 			city: "Lagos",
 			address: "Eko Tower, 1415 Adetokunbo Ademola Street, Victoria Island, Lagos, Nigeria",
 			phone: "+234 1 271 0000",
-			email: "west-africa@jfan.africa",
+			email: "west-africa@jfan.tech",
 		},
 		director: {
 			id: "dir-west",
@@ -201,7 +201,7 @@ export const regionsData: RegionalData[] = [
 				"Published 50+ research papers on African technology",
 				"Mentor to 500+ tech entrepreneurs across the region",
 			],
-			email: "kwame.asante@jfan.africa",
+			email: "kwame.asante@jfan.tech",
 		},
 		programs: [
 			{
@@ -298,7 +298,7 @@ export const regionsData: RegionalData[] = [
 			city: "Nairobi",
 			address: "I&M Bank Tower, 2nd Ngong Avenue, Upper Hill, Nairobi, Kenya",
 			phone: "+254 20 322 8000",
-			email: "east-africa@jfan.africa",
+			email: "east-africa@jfan.tech",
 		},
 		director: {
 			id: "dir-east",
@@ -313,7 +313,7 @@ export const regionsData: RegionalData[] = [
 				"Advisor to 5 East African governments on digital agriculture",
 				"Published expert on sustainable development in Africa",
 			],
-			email: "grace.wanjiku@jfan.africa",
+			email: "grace.wanjiku@jfan.tech",
 		},
 		programs: [
 			{
@@ -418,7 +418,7 @@ export const regionsData: RegionalData[] = [
 			city: "Bangui",
 			address: "Avenue de l'Indépendance, Quartier Centrafrique, Bangui, Central African Republic",
 			phone: "+236 21 61 0000",
-			email: "central-africa@jfan.africa",
+			email: "central-africa@jfan.tech",
 		},
 		director: {
 			id: "dir-central",
@@ -433,7 +433,7 @@ export const regionsData: RegionalData[] = [
 				"Advisor to regional governments on environmental policy",
 				"Champion of community-based conservation initiatives",
 			],
-			email: "jean.moukoko@jfan.africa",
+			email: "jean.moukoko@jfan.tech",
 		},
 		programs: [
 			{
@@ -543,7 +543,7 @@ export const regionsData: RegionalData[] = [
 			city: "Johannesburg",
 			address: "Carlton Centre, 150 Commissioner Street, Marshalltown, Johannesburg, South Africa",
 			phone: "+27 11 834 0000",
-			email: "southern-africa@jfan.africa",
+			email: "southern-africa@jfan.tech",
 		},
 		director: {
 			id: "dir-south",
@@ -558,7 +558,7 @@ export const regionsData: RegionalData[] = [
 				"Board member of 3 major African corporations",
 				"Expert in African capital markets development",
 			],
-			email: "nomsa.ndlovu@jfan.africa",
+			email: "nomsa.ndlovu@jfan.tech",
 		},
 		programs: [
 			{
@@ -654,7 +654,7 @@ export const regionsData: RegionalData[] = [
 			city: "Virtual Headquarters",
 			address: "Global Digital Hub - Multiple Time Zone Coverage",
 			phone: "+1 (555) JFAN-GLOBAL",
-			email: "diaspora@jfan.africa",
+			email: "diaspora@jfan.tech",
 		},
 		director: {
 			id: "dir-diaspora",
@@ -669,7 +669,7 @@ export const regionsData: RegionalData[] = [
 				"Advisor to multiple African governments on diaspora policy",
 				"Founded 3 major African diaspora organizations",
 			],
-			email: "chidi.okonkwo@jfan.africa",
+			email: "chidi.okonkwo@jfan.tech",
 		},
 		programs: [
 			{
@@ -893,7 +893,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "North Africa",
 		bio: "Leading operations across North Africa with over 15 years of experience in international development and technology innovation.",
-		email: "amina.hassan@jfan.africa",
+		email: "amina.hassan@jfan.tech",
 	},
 	{
 		id: "dir-west",
@@ -901,7 +901,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "West Africa",
 		bio: "Driving fintech innovation and creative industries development across West Africa's 16 countries.",
-		email: "kwame.asante@jfan.africa",
+		email: "kwame.asante@jfan.tech",
 	},
 	{
 		id: "dir-east",
@@ -909,7 +909,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "East Africa",
 		bio: "Fostering entrepreneurship and agricultural innovation in East Africa's growing tech ecosystem.",
-		email: "grace.wanjiku@jfan.africa",
+		email: "grace.wanjiku@jfan.tech",
 	},
 	{
 		id: "dir-central",
@@ -917,7 +917,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "Central Africa",
 		bio: "Promoting sustainable development and resource management across Central Africa's diverse economies.",
-		email: "jean.moukoko@jfan.africa",
+		email: "jean.moukoko@jfan.tech",
 	},
 	{
 		id: "dir-south",
@@ -925,7 +925,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Regional Director",
 		region: "Southern Africa",
 		bio: "Leading financial services and industrial development initiatives across Southern Africa's established markets.",
-		email: "nomsa.ndlovu@jfan.africa",
+		email: "nomsa.ndlovu@jfan.tech",
 	},
 	{
 		id: "dir-diaspora",
@@ -933,7 +933,7 @@ export const teamMembers: TeamMember[] = [
 		position: "Global Diaspora Director",
 		region: "Diaspora Network",
 		bio: "Connecting African professionals worldwide and facilitating knowledge transfer and investment opportunities.",
-		email: "chidi.okonkwo@jfan.africa",
+		email: "chidi.okonkwo@jfan.tech",
 	},
 ];
 
