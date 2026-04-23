@@ -483,12 +483,12 @@ export const teamMembers: TeamMember[] = [
 	// maryam
 	{
 		id: "03",
-		name: "Dr Maryam Mohammed DANNA, FCA, FCITN, FCIISM",
-		position: "General Manager, Audit & Compliance",
-		department: "Legal & Consulting",
+		name: "Dr Maryam Mohammed DANNA",
+		position: "EXECUTIVE DIRECTOR &  West Africa Regional Lead the JFAN NTS-3CFS Initiative",
+		department: "Leadership",
 		bio: "Dr Maryam Mohammed Danna is a seasoned audit and financial governance expert with over 30 years of experience in public-sector finance and risk management. She serves as General Manager, Audit and Compliance at the Niger Delta Power Holding Company, where she oversees audit integrity, internal controls, and regulatory compliance. A Fellow of multiple professional institutes, she is recognized for strengthening financial systems and driving accountability in Nigeria’s power sector.",
 		biography: "Dr Maryam Mohammed Danna is a highly accomplished audit, compliance, and financial governance expert with over three decades of senior-level experience in public-sector finance, audit management, and institutional risk control. She currently serves as General Manager, Audit and Compliance at the Niger Delta Power Holding Company (NDPHC), where she provides strategic oversight for audit integrity, internal control systems, and regulatory compliance within one of Nigeria’s most critical power-sector institutions.\nHer career began at the National Electric Power Authority (NEPA) in 1992, where she rose through senior audit leadership roles, demonstrating consistent excellence in financial stewardship, risk management, and organizational accountability.\nAt NDPHC, Dr Danna has been widely recognized for introducing innovative audit and risk-reduction frameworks, strengthening internal control processes, and enhancing enterprise-wide efficiency and policy compliance. Her expertise spans auditing and internal control, information systems audit, financial due diligence, GAAP and IFRS application, enterprise risk management, policy implementation, data analytics, and stakeholder governance.\nShe is a Fellow of the Institute of Chartered Accountants of Nigeria (FCA), Fellow of the Chartered Institute of Taxation of Nigeria (FCITN), and Fellow of the Chartered Institute of Information and Strategy Management (FCIISM). She also holds advanced international certifications including CGEIT, CRISC, and Data Scientist Business Analytics (DSBA) from the University of Texas at Austin.\nWithin JFAN!, Dr Danna serves as Project Lead (West Africa) and Executive Director for the NTS-3CFS, contributing to strategic program delivery, governance frameworks, and regional institutional development initiatives.",
-		image: "/team/",
+		image: "/team/dr-maryam.jpeg",
 
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
