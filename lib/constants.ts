@@ -361,7 +361,7 @@ export const teamMembers: TeamMember[] = [
 		name: "Professor PLO Lumumba",
 		position: "Continental Chairman — JFAN (Jobs For Africa Now)",
 		department: "Executive Leadership",
-		bio: "'Distinguished mentor, visionary leader, and pioneering force in entrepreneurial endeavors. A Nigerian-born British business magnate renowned for enterprise development and wealth redistribution.",
+		bio: "Professor Patrick Loch Otieno Lumumba is a renowned Kenyan jurist, scholar, and Pan-African thought leader specializing in public law, governance, and ethics. He holds a Doctor of Laws (LL.D) from Ghent University and has served in key public roles, including Director of the Kenya School of Law and head of the Kenya Anti-Corruption Commission. Widely respected for his advocacy on ethical leadership and institutional reform, he is a leading voice on Africa’s development and governance.",
 		biography: "Professor Patrick Loch Otieno Lumumba is one of Africa’s most distinguished legal minds, governance reform advocates, and leading intellectual voices on leadership, ethics, and institutional transformation. A Professor of Public Law and an Advocate of the High Courts of Kenya and Tanganyika, he holds a Doctor of Laws (LL.D) in the Law of the Sea from the Ghent University, alongside Master of Laws and Bachelor of Laws degrees from the University of Nairobi.\nHis academic formation includes advanced studies in Human Rights at the Institute of Advanced Legal Studies, Humanitarian Law at the Raoul Wallenberg Institute, and international humanitarian law training in Geneva.\nProfessor Lumumba’s career spans academia, public service, institutional reform, and international advocacy. He has served as Director and Chief Executive Officer of the Kenya School of Law, Secretary of the Constitution of Kenya Review Commission, and Director of the Kenya Anti-Corruption Commission, demonstrating a strong commitment to ethical governance, transparency, and accountability.\nIn academia, he has held senior roles including Founding Dean of the Kabarak University School of Law and lecturer at multiple institutions. He currently serves as Professor of Leadership and Ethics at the African School of Governance.\nA prolific author and globally sought-after keynote speaker, Professor Lumumba has contributed extensively to scholarship on constitutionalism, governance reform, and African development. His work consistently advocates for principled leadership, institutional integrity, and Pan-African renewal.",
 		image: "/team/plo-lumumba.webp",
 		socialLinks: {
@@ -478,6 +478,38 @@ export const teamMembers: TeamMember[] = [
 			"Secured partnerships with 200+ global companies",
 			"Generated $25M in partnership value",
 			"Expanded JFAN presence to 15 international markets",
+		],
+	},
+	// maryam
+	{
+		id: "03",
+		name: "Dr Maryam Mohammed DANNA, FCA, FCITN, FCIISM",
+		position: "General Manager, Audit & Compliance",
+		department: "Legal & Consulting",
+		bio: "Dr Maryam Mohammed Danna is a seasoned audit and financial governance expert with over 30 years of experience in public-sector finance and risk management. She serves as General Manager, Audit and Compliance at the Niger Delta Power Holding Company, where she oversees audit integrity, internal controls, and regulatory compliance. A Fellow of multiple professional institutes, she is recognized for strengthening financial systems and driving accountability in Nigeria’s power sector.",
+		biography: "Dr Maryam Mohammed Danna is a highly accomplished audit, compliance, and financial governance expert with over three decades of senior-level experience in public-sector finance, audit management, and institutional risk control. She currently serves as General Manager, Audit and Compliance at the Niger Delta Power Holding Company (NDPHC), where she provides strategic oversight for audit integrity, internal control systems, and regulatory compliance within one of Nigeria’s most critical power-sector institutions.\nHer career began at the National Electric Power Authority (NEPA) in 1992, where she rose through senior audit leadership roles, demonstrating consistent excellence in financial stewardship, risk management, and organizational accountability.\nAt NDPHC, Dr Danna has been widely recognized for introducing innovative audit and risk-reduction frameworks, strengthening internal control processes, and enhancing enterprise-wide efficiency and policy compliance. Her expertise spans auditing and internal control, information systems audit, financial due diligence, GAAP and IFRS application, enterprise risk management, policy implementation, data analytics, and stakeholder governance.\nShe is a Fellow of the Institute of Chartered Accountants of Nigeria (FCA), Fellow of the Chartered Institute of Taxation of Nigeria (FCITN), and Fellow of the Chartered Institute of Information and Strategy Management (FCIISM). She also holds advanced international certifications including CGEIT, CRISC, and Data Scientist Business Analytics (DSBA) from the University of Texas at Austin.\nWithin JFAN!, Dr Danna serves as Project Lead (West Africa) and Executive Director for the NTS-3CFS, contributing to strategic program delivery, governance frameworks, and regional institutional development initiatives.",
+		image: "/team/",
+
+		socialLinks: {
+			linkedin: "https://linkedin.com/in/",
+			twitter: "https://twitter.com",
+			email: "maryam.mohammed@jfan.tech",
+		},
+		skills: [
+			"Audit & Compliance Management",
+			"Financial Governance & Reporting (GAAP / IFRS)",
+			"Enterprise Risk Management",
+			"Internal Controls & Policy Implementation",
+			"Information Systems Audit",
+			"Data Analytics & Financial Due Diligence",
+		],
+		experience: "30+ years in Audit, Financial Governance, and Risk Management",
+		education: "Data Scientist Business Analytics (DSBA) University of Texas, Austin",
+		achievements: [
+			"Introduced innovative audit frameworks improving risk reduction",
+			"Strengthened internal control systems in a major national power institution",
+			"Enhanced enterprise-wide compliance and operational efficiency",
+			"Built strong credibility in managing large-scale public and community funds",
 		],
 	},
 
