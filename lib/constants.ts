@@ -386,31 +386,53 @@ export const teamMembers: TeamMember[] = [
 			"Delivered keynote lectures across Africa and globally",
 		],
 	},
+	// {
+	// 	id: "1",
+	// 	name: "Sir Khalifah Onu",
+	// 	position: "National Chairman and Nigerian Country Project Team Lead, JFAN",
+	// 	department: "Executive Leadership",
+	// 	bio: "Distinguished mentor, visionary leader, and pioneering force in entrepreneurial endeavors. A Nigerian-born British business magnate renowned for enterprise development and wealth redistribution.",
+	// 	biography: "Mr. Khalifah Onu stands as a distinguished mentor, visionary leader, and a pioneering force in entrepreneurial and philanthropic endeavors. His profound impact as a strategic nation-builder is evident through his transformative initiatives and his relentless drive to empower communities across Africa and beyond. \n\n A Nigerian-born British business magnate, Mr. Onu is renowned for his unparalleled expertise in enterprise development and wealth redistribution. His tenure as a former Presidential Aide in Nigeria laid the foundation for a career that has blossomed into one of global influence. Today, Mr. Khalifah Onu is regarded as a trailblazer whose leadership and strategic vision have shaped industries, changed lives, and uplifted communities. \n\nAs the Chairman of Royal CBS Group Limited, he has garnered respect for his innovation, ethical entrepreneurship, and strategic investments. His reputation is defined by a commitment to job creation and economic empowerment, earning him the moniker “The Wing of Freedom.” Far from being a wealth hoarder, Mr. Onu is celebrated as a distributor of wealth and creator of opportunities, qualities that distinguish his entrepreneurial journey.",
+	// 	image: "/team/kalifa-onu.jpeg",
+	// 	socialLinks: {
+	// 		linkedin: "https://linkedin.com/in/",
+	// 		twitter: "https://twitter.com",
+	// 		email: "khalifa.onu@jfan.tech",
+	// 	},
+
+	// 	skills: ["Talent Development", "Training Design", "Performance Management", "Leadership Coaching"],
+	// 	experience: "15+ years in African Economic Development ",
+	// 	education: "",
+	// 	achievements: [
+	// 		"Developed training programs for 100K+ professionals",
+	// 		"Published 3 books on African talent development",
+	// 		"Consultant to World Bank on skills development",
+	// 	],
+	// 	pdfDocument: {
+	// 		url: "/team/documents/sir-khalifa-onu-profile..pdf",
+	// 	},
+	// },
 	{
 		id: "1",
-		name: "Sir Khalifah Onu",
-		position: "National Chairman and Nigerian Country Project Team Lead, JFAN",
-		department: "Executive Leadership",
-		bio: "Distinguished mentor, visionary leader, and pioneering force in entrepreneurial endeavors. A Nigerian-born British business magnate renowned for enterprise development and wealth redistribution.",
-		biography: "Mr. Khalifah Onu stands as a distinguished mentor, visionary leader, and a pioneering force in entrepreneurial and philanthropic endeavors. His profound impact as a strategic nation-builder is evident through his transformative initiatives and his relentless drive to empower communities across Africa and beyond. \n\n A Nigerian-born British business magnate, Mr. Onu is renowned for his unparalleled expertise in enterprise development and wealth redistribution. His tenure as a former Presidential Aide in Nigeria laid the foundation for a career that has blossomed into one of global influence. Today, Mr. Khalifah Onu is regarded as a trailblazer whose leadership and strategic vision have shaped industries, changed lives, and uplifted communities. \n\nAs the Chairman of Royal CBS Group Limited, he has garnered respect for his innovation, ethical entrepreneurship, and strategic investments. His reputation is defined by a commitment to job creation and economic empowerment, earning him the moniker “The Wing of Freedom.” Far from being a wealth hoarder, Mr. Onu is celebrated as a distributor of wealth and creator of opportunities, qualities that distinguish his entrepreneurial journey.",
-		image: "/team/kalifa-onu.jpeg",
+		name: "Hon Barr Boma Patricia Jack (Esq.)",
+		position: "",
+		department: "Administration, Charity and Philanthropy ",
+		bio: " Boma Patricia Jack (Esq.) is a Nigerian legal professional and corporate executive, known, primarily, for her role as the Chief Operating Officer (COO) at Rainbow Heritage Group (RHG). ",
+		biography: "he has extensive international exposure, with experience spanning Africa, Europe, Asia, and America. Her competencies include Oil & Gas, Public Administration, Public Procurement, Community Relations, Arbitration, Youth Development, Government Affairs, and High-level Negotiations. She is described as a team player, hands-on mentor, and leader focusing on human capital development.",
+		image: "/team/boma.jpg",
 		socialLinks: {
 			linkedin: "https://linkedin.com/in/",
 			twitter: "https://twitter.com",
-			email: "khalifa.onu@jfan.tech",
+			email: "boma.onu@jfan.tech",
 		},
 
-		skills: ["Talent Development", "Training Design", "Performance Management", "Leadership Coaching"],
-		experience: "15+ years in African Economic Development ",
+		skills: [],
+		experience: "Over 25 years in Corporate Administration, Management and Community Service.",
 		education: "",
 		achievements: [
-			"Developed training programs for 100K+ professionals",
-			"Published 3 books on African talent development",
-			"Consultant to World Bank on skills development",
+			
 		],
-		pdfDocument: {
-			url: "/team/documents/sir-khalifa-onu-profile..pdf",
-		},
+		
 	},
 	{
 		id: "2",
@@ -457,6 +479,7 @@ export const teamMembers: TeamMember[] = [
 			"National Director-The National Industrial Business Summit (NIBS), A multi-stakeholder Industrial advocacy Platform for Micro, Small, and Medium Industries (MSMIs).",
 		],
 	},
+	
 	{
 		id: "3",
 		name: "Barr Hezekiah O. IMONIVWERHA",
