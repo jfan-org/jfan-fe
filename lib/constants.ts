@@ -503,6 +503,35 @@ export const teamMembers: TeamMember[] = [
 			"Expanded JFAN presence to 15 international markets",
 		],
 	},
+	// Amina
+	{
+		id: "0303",
+		name: "Hon Amina ILIYASU (Mcism, Ficen, EPA)",
+		position: "Chief Consultant JFAN",
+		department: "Social Commentary, Politics, Media, Community Development, Charity,  and Philanthropy",
+		bio: "Hon Amina ILIYASU (Mcism, Ficen, EPA) is a distinguished Nigerian politician, social activist, and entrepreneur from Talata – Mafara Local Government of Zamfara State. She is the author of DAILY LIFE ISSUES IN NIGERIA a bestseller on AMAZON and SELAR.com. She holds a Bachelor’s Degree in Business Administration from Usmanu Danfodio University, Sokoto and an MBA from Ahmadu Bello University, Zaria. Currently she’s pursuing a degree in Peace and Conflict Resolution at the National Open University of Nigeria.",
+		biography: "Amina’s credentials also include being an alumina of the Ibadan Business School and a certified Interfaith Mediator from the Drew University, New Jersey, USA. Her experience in governance is evident in her roles as Honourable Special Adviser to the Executive Governor of Zamfara State of Nigeria – where she served in various other capacities such as Honourable Special Adviser on Skills Acquisition and thereafter, NGOs.\nAs a grassroots mobilizer and politician, Amina aspired to the office of the Federal House of Representatives from her constituency in 2019. She is the Founder and CEO of Azyali Solid Foundation, showcasing her entrepreneurial prowess. Additionally, she’s the Founder of Queen Amina TV across Social Media and the host thereof of the popular talk show, “Daily Life Issues with Amina and Adama,” where she addresses pressing community challenges.\nShe is the author of DAILY LIFE ISSUES IN NIGERIA a bestseller on AMAZON and SELAR.com",
+		image: "/team/amina.jpg",
+
+		socialLinks: {
+			linkedin: "https://linkedin.com/in/",
+			twitter: "https://twitter.com",
+			email: "amina@jfan.tech",
+		},
+		skills: ["Strong background in governance and public administration through advisory roles to the Executive Governor of Zamfara State", "Expertise in skills acquisition development and NGO coordination", "Negotiation", "Relationship Management", "Grassroots mobilization and political engagement at constituency level", "Entrepreneurial leadership as Founder & CEO of Azyali Solid Foundation", "Media and communication skills as host of a social issues talk show", "Experience in advocacy, social activism, and community development", "Writing and journalism experience as a newspaper columnist"],
+		experience: "7years in Public Service, 4 years in Community Developmental Media & Advocacy",
+		education: "BA (USmanu Danfodio University Sokoto), MBA (ABU Zaria).",
+		achievements: [
+			"Served as Honourable Special Adviser to the Governor of Zamfara State in multiple capacities",
+			"Contested for a seat in the Federal House of Representatives (2019)",
+			"Founded Azyali Solid Foundation, impacting community development initiatives",
+			"Established Queen Amina TV and hosted a widely recognized talk show addressing societal issues",
+			"Alumni of prestigious institutions including Ibadan Business School and Drew University",
+			"Recognized member of influential groups such as Young Female Special Advisers Initiative and Northern Women Forum",
+			"Awarded traditional title Shalelen Sabon Garin Kauran Namoda",
+			"Built a reputation as a voice for grassroots advocacy and women empowerment"
+		],
+	},
 	// maryam
 	{
 		id: "03",
